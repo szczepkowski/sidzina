@@ -1,0 +1,208 @@
+2022-02-22 11:40:27.965  INFO 9137 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on gore-pc with PID 9137 (/home/gore/projects/sidzina/build/classes/java/main started by gore in /home/gore/projects/sidzina)
+2022-02-22 11:40:27.970  INFO 9137 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
+2022-02-22 11:40:28.760  INFO 9137 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-02-22 11:40:28.880  INFO 9137 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 117ms. Found 3 MongoDB repository interfaces.
+2022-02-22 11:40:29.551  INFO 9137 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-02-22 11:40:29.558  INFO 9137 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-22 11:40:29.559  INFO 9137 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-02-22 11:40:29.636  INFO 9137 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-22 11:40:29.636  INFO 9137 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1630 ms
+2022-02-22 11:40:29.990  INFO 9137 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2022-02-22 11:40:29.990  INFO 9137 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2022-02-22 11:40:30.016  INFO 9137 --- [cluster-ClusterId{value='6214bd9d3dcccc4c8b4df9ce', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:128) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117) ~[mongodb-driver-core-3.11.2.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:830) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:579) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:339) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:603) ~[na:na]
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:64) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-3.11.2.jar:na]
+	... 3 common frames omitted
+
+2022-02-22 11:40:30.175  WARN 9137 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-02-22 11:40:30.192  INFO 9137 --- [main] org.mongodb.driver.cluster               : Cluster description not yet available. Waiting for 30000 ms before timing out
+2022-02-22 11:53:32.142  INFO 13968 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on gore-pc with PID 13968 (/home/gore/projects/sidzina/build/classes/java/main started by gore in /home/gore/projects/sidzina)
+2022-02-22 11:53:32.144  INFO 13968 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
+2022-02-22 11:53:32.927  INFO 13968 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-02-22 11:53:33.031  INFO 13968 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100ms. Found 3 MongoDB repository interfaces.
+2022-02-22 11:53:33.640  INFO 13968 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-02-22 11:53:33.649  INFO 13968 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-22 11:53:33.649  INFO 13968 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-02-22 11:53:33.736  INFO 13968 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-22 11:53:33.737  INFO 13968 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1554 ms
+2022-02-22 11:53:34.117  INFO 13968 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2022-02-22 11:53:34.117  INFO 13968 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2022-02-22 11:53:34.158  INFO 13968 --- [cluster-ClusterId{value='6214c0aea06b1d3db261832c', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:27017
+2022-02-22 11:53:34.162  INFO 13968 --- [cluster-ClusterId{value='6214c0aea06b1d3db261832c', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1907613}
+2022-02-22 11:53:34.163  INFO 13968 --- [cluster-ClusterId{value='6214c0aea06b1d3db261832c', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2022-02-22 11:53:34.293  WARN 13968 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-02-22 11:53:34.449  INFO 13968 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27017
+2022-02-22 11:53:34.624 DEBUG 13968 --- [main] s.f.KeycloakSecurityContextRequestFilter : Filter 'keycloakSecurityContextRequestFilter' configured for use
+2022-02-22 11:53:34.625 DEBUG 13968 --- [main] f.KeycloakAuthenticationProcessingFilter : Filter 'keycloakAuthenticationProcessingFilter' configured for use
+2022-02-22 11:53:34.625 DEBUG 13968 --- [main] o.k.a.s.f.KeycloakPreAuthActionsFilter   : Filter 'keycloakPreAuthActionsFilter' configured for use
+2022-02-22 11:53:34.626 DEBUG 13968 --- [main] a.s.f.KeycloakAuthenticatedActionsFilter : Filter 'keycloakAuthenticatedActionsRequestFilter' configured for use
+2022-02-22 11:53:34.627 DEBUG 13968 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : Using org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper to resolve Keycloak configuration on a per-request basis.
+2022-02-22 11:53:34.949  INFO 13968 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-02-22 11:53:35.057  INFO 13968 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-22 11:53:35.106  INFO 13968 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43549c6c, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e8fe7db, org.springframework.security.web.header.HeaderWriterFilter@3539cf45, org.springframework.web.filter.CorsFilter@7d551ec6, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@983050b, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@1af82ba8, org.springframework.security.web.authentication.logout.LogoutFilter@58d79479, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64908ab9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ea19c97, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@5d15789f, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@5abb7a8f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7792e14f, org.springframework.security.web.session.SessionManagementFilter@556a6320, org.springframework.security.web.access.ExceptionTranslationFilter@6f69e2d8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@35c95869]
+2022-02-22 11:53:35.123  INFO 13968 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'threadPoolTaskScheduler'
+2022-02-22 11:53:35.435  INFO 13968 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-02-22 11:53:35.445  INFO 13968 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-02-22 11:53:35.469  INFO 13968 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-02-22 11:53:35.605  INFO 13968 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
+2022-02-22 11:53:35.607  INFO 13968 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
+2022-02-22 11:53:35.674  INFO 13968 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-02-22 11:53:35.677  INFO 13968 --- [main] pl.goreit.sidzina.Sidzina                : Started Sidzina in 3.867 seconds (JVM running for 4.174)
+2022-02-22 11:54:33.266  INFO 14717 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on gore-pc with PID 14717 (/home/gore/projects/sidzina/build/classes/java/main started by gore in /home/gore/projects/sidzina)
+2022-02-22 11:54:33.269  INFO 14717 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
+2022-02-22 11:54:34.164  INFO 14717 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-02-22 11:54:34.272  INFO 14717 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105ms. Found 3 MongoDB repository interfaces.
+2022-02-22 11:54:34.945  INFO 14717 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-02-22 11:54:34.954  INFO 14717 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-22 11:54:34.954  INFO 14717 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-02-22 11:54:35.039  INFO 14717 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-22 11:54:35.040  INFO 14717 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1726 ms
+2022-02-22 11:54:35.450  INFO 14717 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2022-02-22 11:54:35.451  INFO 14717 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2022-02-22 11:54:35.495  INFO 14717 --- [cluster-ClusterId{value='6214c0eb3694391733999612', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:3}] to localhost:27017
+2022-02-22 11:54:35.500  INFO 14717 --- [cluster-ClusterId{value='6214c0eb3694391733999612', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2262967}
+2022-02-22 11:54:35.501  INFO 14717 --- [cluster-ClusterId{value='6214c0eb3694391733999612', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2022-02-22 11:54:35.650  WARN 14717 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-02-22 11:54:35.780  INFO 14717 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:4}] to localhost:27017
+2022-02-22 11:54:35.953 DEBUG 14717 --- [main] s.f.KeycloakSecurityContextRequestFilter : Filter 'keycloakSecurityContextRequestFilter' configured for use
+2022-02-22 11:54:35.954 DEBUG 14717 --- [main] f.KeycloakAuthenticationProcessingFilter : Filter 'keycloakAuthenticationProcessingFilter' configured for use
+2022-02-22 11:54:35.954 DEBUG 14717 --- [main] o.k.a.s.f.KeycloakPreAuthActionsFilter   : Filter 'keycloakPreAuthActionsFilter' configured for use
+2022-02-22 11:54:35.955 DEBUG 14717 --- [main] a.s.f.KeycloakAuthenticatedActionsFilter : Filter 'keycloakAuthenticatedActionsRequestFilter' configured for use
+2022-02-22 11:54:35.957 DEBUG 14717 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : Using org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper to resolve Keycloak configuration on a per-request basis.
+2022-02-22 11:54:36.280  INFO 14717 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-02-22 11:54:36.398  INFO 14717 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-22 11:54:36.454  INFO 14717 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63c6c5e5, org.springframework.security.web.context.SecurityContextPersistenceFilter@69c0bae6, org.springframework.security.web.header.HeaderWriterFilter@7c39193f, org.springframework.web.filter.CorsFilter@72b10258, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@50734cea, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@7bc8ffbc, org.springframework.security.web.authentication.logout.LogoutFilter@4edde05c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5eb041b5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5513a46b, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@784212, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@5ac646b3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6edb2c7b, org.springframework.security.web.session.SessionManagementFilter@6e225c34, org.springframework.security.web.access.ExceptionTranslationFilter@29fc83c5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7c37ac3c]
+2022-02-22 11:54:36.472  INFO 14717 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'threadPoolTaskScheduler'
+2022-02-22 11:54:36.784  INFO 14717 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-02-22 11:54:36.792  INFO 14717 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-02-22 11:54:36.815  INFO 14717 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-02-22 11:54:36.932  INFO 14717 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
+2022-02-22 11:54:36.934  INFO 14717 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
+2022-02-22 11:54:36.986  INFO 14717 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-02-22 11:54:36.989  INFO 14717 --- [main] pl.goreit.sidzina.Sidzina                : Started Sidzina in 4.076 seconds (JVM running for 4.35)
+2022-02-22 12:01:12.972 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/message
+2022-02-22 12:01:12.977 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Using provider 'secret' for authentication of client 'sidzina'
+2022-02-22 12:01:12.978 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret
+2022-02-22 12:01:12.979 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider jwt
+2022-02-22 12:01:12.979 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret-jwt
+2022-02-22 12:01:12.980 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret
+2022-02-22 12:01:12.980 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider jwt
+2022-02-22 12:01:12.980 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret-jwt
+2022-02-22 12:01:12.984 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/message
+2022-02-22 12:01:12.985 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : Preflight request returning
+2022-02-22 12:01:12.989 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/message
+2022-02-22 12:01:12.989 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/message
+2022-02-22 12:01:12.992 DEBUG 14717 --- [http-nio-8081-exec-2] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /message
+2022-02-22 12:01:12.993 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/message
+2022-02-22 12:01:12.993 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Origin: http://192.168.0.187:4200 uri: http://localhost:8081/message
+2022-02-22 12:01:12.993 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/message
+2022-02-22 12:01:12.993 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-02-22 12:01:12.994  INFO 14717 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-22 12:01:12.994  INFO 14717 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-02-22 12:01:13.000  INFO 14717 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2022-02-22 12:01:13.010 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/message
+2022-02-22 12:01:13.010 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/message
+2022-02-22 12:01:13.020 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/message
+2022-02-22 12:01:13.020 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/message
+2022-02-22 12:03:51.641  INFO 4965 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on gore-pc with PID 4965 (/home/gore/projects/sidzina/build/classes/java/main started by gore in /home/gore/projects/sidzina)
+2022-02-22 12:03:51.648  INFO 4965 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
+2022-02-22 12:03:53.066  INFO 4965 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-02-22 12:03:53.216  INFO 4965 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145ms. Found 3 MongoDB repository interfaces.
+2022-02-22 12:03:54.087  INFO 4965 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-02-22 12:03:54.098  INFO 4965 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-22 12:03:54.098  INFO 4965 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-02-22 12:03:54.199  INFO 4965 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-22 12:03:54.200  INFO 4965 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2460 ms
+2022-02-22 12:03:54.693  INFO 4965 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2022-02-22 12:03:54.694  INFO 4965 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2022-02-22 12:03:54.762  INFO 4965 --- [cluster-ClusterId{value='6214c31a6459fc7a917495b6', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:27017
+2022-02-22 12:03:54.767  INFO 4965 --- [cluster-ClusterId{value='6214c31a6459fc7a917495b6', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2655034}
+2022-02-22 12:03:54.769  INFO 4965 --- [cluster-ClusterId{value='6214c31a6459fc7a917495b6', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2022-02-22 12:03:54.937  WARN 4965 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-02-22 12:03:55.077  INFO 4965 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27017
+2022-02-22 12:03:55.342 DEBUG 4965 --- [main] s.f.KeycloakSecurityContextRequestFilter : Filter 'keycloakSecurityContextRequestFilter' configured for use
+2022-02-22 12:03:55.343 DEBUG 4965 --- [main] f.KeycloakAuthenticationProcessingFilter : Filter 'keycloakAuthenticationProcessingFilter' configured for use
+2022-02-22 12:03:55.344 DEBUG 4965 --- [main] o.k.a.s.f.KeycloakPreAuthActionsFilter   : Filter 'keycloakPreAuthActionsFilter' configured for use
+2022-02-22 12:03:55.345 DEBUG 4965 --- [main] a.s.f.KeycloakAuthenticatedActionsFilter : Filter 'keycloakAuthenticatedActionsRequestFilter' configured for use
+2022-02-22 12:03:55.346 DEBUG 4965 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : Using org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper to resolve Keycloak configuration on a per-request basis.
+2022-02-22 12:03:55.780  INFO 4965 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-02-22 12:03:55.907  INFO 4965 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-22 12:03:55.964  INFO 4965 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74c23525, org.springframework.security.web.context.SecurityContextPersistenceFilter@2ae88712, org.springframework.security.web.header.HeaderWriterFilter@525b9df4, org.springframework.web.filter.CorsFilter@3adde4ea, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@4cf5d999, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@2f262474, org.springframework.security.web.authentication.logout.LogoutFilter@129aaac1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@da11873, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@495f7ca4, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@5c0272e0, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@60c4cf2b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@176054b7, org.springframework.security.web.session.SessionManagementFilter@36857d32, org.springframework.security.web.access.ExceptionTranslationFilter@14fe085b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@682fe17b]
+2022-02-22 12:03:55.990  INFO 4965 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'threadPoolTaskScheduler'
+2022-02-22 12:03:56.354  INFO 4965 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-02-22 12:03:56.368  INFO 4965 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-02-22 12:03:56.397  INFO 4965 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-02-22 12:03:56.554  INFO 4965 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
+2022-02-22 12:03:56.556  INFO 4965 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
+2022-02-22 12:03:56.657  INFO 4965 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-02-22 12:03:56.660  INFO 4965 --- [main] pl.goreit.sidzina.Sidzina                : Started Sidzina in 5.638 seconds (JVM running for 6.254)
