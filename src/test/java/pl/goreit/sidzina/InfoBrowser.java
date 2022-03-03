@@ -1,27 +1,47 @@
 package pl.goreit.sidzina;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class InfoBrowser {
 
-    public WebDriver getDriver() {
+    private WebDriver driver;
+
+    @BeforeAll
+    public static void setup() {
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.navigate().to("http://192.168.0.167:4200/");
+    }
+
+    @AfterEach()
+    public void tearDown() {
+        this.driver.quit();
+    }
+
+    @BeforeEach
+    public void getDriver() {
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
-        return driver;
+        driver.navigate().to("http://192.168.0.167:4200");
     }
 
 
     @Test
     public void getInfoBrowser2() {
-        WebDriver driver = getDriver();
         System.out.println("Adres:" + driver.getCurrentUrl());
         System.out.println("Tytuł:" + driver.getTitle());
         System.out.println("Source:" + driver.getPageSource());
-        driver.quit();
 
+        String currentUrl = driver.getCurrentUrl();
+        String title = driver.getTitle();
+        String pageSource = driver.getPageSource();
+
+        assertEquals("http://192.168.0.167:4200/", currentUrl);
+        assertEquals("sidzina - Elastyczne oprogrwamowanie", title);
     }
 }

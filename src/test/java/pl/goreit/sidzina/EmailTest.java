@@ -1,47 +1,53 @@
 package pl.goreit.sidzina;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.springframework.boot.actuate.autoconfigure.metrics.MetricsProperties;
-
-import java.lang.annotation.Target;
 
 public class EmailTest {
-    public WebDriver getDriver() {
+
+    private WebDriver driver;
+
+    @BeforeAll
+    public static void setup() {
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.navigate().to("http://192.168.0.167:4200/kontakt");
+    }
+
+    @AfterEach()
+    public void tearDown() {
+        this.driver.quit();
+    }
+
+    @BeforeEach
+    public void getDriver() {
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
-        return driver;
+        driver.navigate().to("http://192.168.0.167:4200/kontakt");
     }
 
 
     @Test
     public void checkMailPositiveTest() {
-        WebDriver driver = getDriver();
         WebElement mail = driver.findElement(By.name("email"));
         mail.sendKeys("masa@com.pl");
-        driver.quit();
     }
 
 
     @Test
     public void checkIncorrectMailNegativeTest() {
-        WebDriver driver = getDriver();
         WebElement mail2 = driver.findElement(By.id("email"));
         mail2.sendKeys("asdsadd");
-        //driver.quit();
     }
 
 
     @Test
     public void checkSpaceMailNegativeTest() {
-        WebDriver driver = getDriver();
         WebElement mail3 = driver.findElement(By.cssSelector("#email"));
         mail3.sendKeys(" ");
-        driver.quit();
     }
 }

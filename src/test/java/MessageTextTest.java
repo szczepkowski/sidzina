@@ -34,7 +34,7 @@ public class MessageTextTest {
         WebDriver driver = getDriver();
         WebElement textArea1 = driver.findElement(By.xpath("//*[@id='text']"));
         textArea1.sendKeys("");
-        //driver.quit();
+        driver.quit();
     }
 
 
@@ -43,7 +43,7 @@ public class MessageTextTest {
         WebDriver driver = getDriver();
         WebElement textArea2 = driver.findElement(By.id("text"));
         textArea2.sendKeys("  ");
-        //driver.quit();
+        driver.quit();
     }
 
 }
