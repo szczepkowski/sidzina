@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,8 +8,12 @@ import org.springframework.boot.actuate.autoconfigure.metrics.MetricsProperties;
 
 public class ContactTest {
 
-    public WebDriver getDriver() {
+    @BeforeAll
+    public static void setup(){
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+    }
+
+    public WebDriver getDriver() {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.navigate().to("http://192.168.0.167:4200/kontakt");
