@@ -40,8 +40,8 @@ public class HomeTest {
     @Test
     public void enabledElementPositiveTest() {
         WebDriver driver = getDriver();
-        WebElement bottom1 = driver.findElement(By.xpath("/html/body/app-root/div/app-header/div[1]/p/b"));
-        bottom1.isEnabled();
+        WebElement button1 = driver.findElement(By.xpath("/html/body/app-root/div/app-header/div[1]/p/b"));
+        button1.isEnabled();
         driver.quit();
     }
 
@@ -49,8 +49,8 @@ public class HomeTest {
     @Test
     public void enabledElementPositiveTest2() {
         WebDriver driver = getDriver();
-        WebElement bottom2 = driver.findElement(By.className("m-3"));
-        bottom2.isEnabled();
+        WebElement button2 = driver.findElement(By.className("m-3"));
+        button2.isEnabled();
         driver.quit();
     }
 }

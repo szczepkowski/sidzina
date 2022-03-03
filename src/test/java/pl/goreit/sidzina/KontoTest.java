@@ -23,8 +23,8 @@ public class KontoTest {
     @Test
     public void clickPortfolioPositiveTest() {
         WebDriver driver = getDriver();
-        WebElement portfolioBottom = driver.findElement(By.cssSelector("body > app-root > div > app-account > div > div.d-lg-inline-block > a > h3 > u"));
-        portfolioBottom.click();
+        WebElement portfoliobutton = driver.findElement(By.cssSelector("body > app-root > div > app-account > div > div.d-lg-inline-block > a > h3 > u"));
+        portfoliobutton.click();
         driver.quit();
     }
 
@@ -32,8 +32,8 @@ public class KontoTest {
     @Test
     public void clickFacebookPositiveTest() {
         WebDriver driver = getDriver();
-        WebElement facebookBottom = driver.findElement(By.xpath("/html/body/app-root/div/app-footer/nav/div[1]/a"));
-        facebookBottom.click();
+        WebElement facebookbutton = driver.findElement(By.xpath("/html/body/app-root/div/app-footer/nav/div[1]/a"));
+        facebookbutton.click();
         driver.quit();
     }
 
@@ -41,8 +41,8 @@ public class KontoTest {
     @Test
     public void clickGoreItPositiveTest() {
         WebDriver driver = getDriver();
-        WebElement goreItBottom = driver.findElement(By.xpath("/html/body/app-root/div/app-footer/nav/div[2]/a"));
-        goreItBottom.click();
+        WebElement goreItbutton = driver.findElement(By.xpath("/html/body/app-root/div/app-footer/nav/div[2]/a"));
+        goreItbutton.click();
         driver.quit();
     }
 
