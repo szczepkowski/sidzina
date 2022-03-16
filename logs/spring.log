@@ -1,34 +1,327 @@
-2022-02-22 11:40:27.965  INFO 9137 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on gore-pc with PID 9137 (/home/gore/projects/sidzina/build/classes/java/main started by gore in /home/gore/projects/sidzina)
-2022-02-22 11:40:27.970  INFO 9137 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
-2022-02-22 11:40:28.760  INFO 9137 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-02-22 11:40:28.880  INFO 9137 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 117ms. Found 3 MongoDB repository interfaces.
-2022-02-22 11:40:29.551  INFO 9137 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2022-02-22 11:40:29.558  INFO 9137 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-02-22 11:40:29.559  INFO 9137 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2022-02-22 11:40:29.636  INFO 9137 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-02-22 11:40:29.636  INFO 9137 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1630 ms
-2022-02-22 11:40:29.990  INFO 9137 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2022-02-22 11:40:29.990  INFO 9137 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
-2022-02-22 11:40:30.016  INFO 9137 --- [cluster-ClusterId{value='6214bd9d3dcccc4c8b4df9ce', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+2022-03-16 08:08:33.732  INFO 7418 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on GoreITs-MacBook-Pro.local with PID 7418 (/Users/goreit/Projects/sidzina/build/classes/java/main started by goreit in /Users/goreit/Projects/sidzina)
+2022-03-16 08:08:33.749  INFO 7418 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
+2022-03-16 08:08:36.528  INFO 7418 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-03-16 08:08:36.838  INFO 7418 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 303ms. Found 4 MongoDB repository interfaces.
+2022-03-16 08:08:38.766  INFO 7418 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-03-16 08:08:38.780  INFO 7418 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-16 08:08:38.780  INFO 7418 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-03-16 08:08:38.994  INFO 7418 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-16 08:08:38.999  INFO 7418 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5101 ms
+2022-03-16 08:08:40.373  INFO 7418 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2022-03-16 08:08:40.377  INFO 7418 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2022-03-16 08:08:40.485  INFO 7418 --- [cluster-ClusterId{value='62318cf836c5026d8edc5797', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:9}] to localhost:27017
+2022-03-16 08:08:40.499  INFO 7418 --- [cluster-ClusterId{value='62318cf836c5026d8edc5797', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=9989166}
+2022-03-16 08:08:40.501  INFO 7418 --- [cluster-ClusterId{value='62318cf836c5026d8edc5797', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2022-03-16 08:08:40.911  WARN 7418 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2022-03-16 08:08:41.103  INFO 7418 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:10}] to localhost:27017
+2022-03-16 08:08:41.728 DEBUG 7418 --- [main] s.f.KeycloakSecurityContextRequestFilter : Filter 'keycloakSecurityContextRequestFilter' configured for use
+2022-03-16 08:08:41.731 DEBUG 7418 --- [main] f.KeycloakAuthenticationProcessingFilter : Filter 'keycloakAuthenticationProcessingFilter' configured for use
+2022-03-16 08:08:41.736 DEBUG 7418 --- [main] o.k.a.s.f.KeycloakPreAuthActionsFilter   : Filter 'keycloakPreAuthActionsFilter' configured for use
+2022-03-16 08:08:41.739 DEBUG 7418 --- [main] a.s.f.KeycloakAuthenticatedActionsFilter : Filter 'keycloakAuthenticatedActionsRequestFilter' configured for use
+2022-03-16 08:08:41.744 DEBUG 7418 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : Using org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper to resolve Keycloak configuration on a per-request basis.
+2022-03-16 08:08:52.401  INFO 7418 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-03-16 08:08:52.736  INFO 7418 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-16 08:08:52.836  INFO 7418 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f9e6167, org.springframework.security.web.context.SecurityContextPersistenceFilter@bf18412, org.springframework.security.web.header.HeaderWriterFilter@64381526, org.springframework.web.filter.CorsFilter@146add7b, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@3b8b4846, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@1ac25dbb, org.springframework.security.web.authentication.logout.LogoutFilter@550574cb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52c27d53, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@299ddfff, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@2fca282c, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@4a2653a0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66d69cd2, org.springframework.security.web.session.SessionManagementFilter@6ad7a305, org.springframework.security.web.access.ExceptionTranslationFilter@35d3202b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@53da2aec]
+2022-03-16 08:08:52.903  INFO 7418 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'threadPoolTaskScheduler'
+2022-03-16 08:08:53.801  INFO 7418 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-16 08:08:53.815  INFO 7418 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-16 08:08:53.915  INFO 7418 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-16 08:08:55.482  INFO 7418 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
+2022-03-16 08:08:55.496  INFO 7418 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
+2022-03-16 08:08:55.912  INFO 7418 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-03-16 08:08:55.929  INFO 7418 --- [main] pl.goreit.sidzina.Sidzina                : Started Sidzina in 23.152 seconds (JVM running for 24.023)
+2022-03-16 08:09:12.084 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-ui.html
+2022-03-16 08:09:12.097 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Using provider 'secret' for authentication of client 'sidzina'
+2022-03-16 08:09:12.109 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret
+2022-03-16 08:09:12.111 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider jwt
+2022-03-16 08:09:12.111 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret-jwt
+2022-03-16 08:09:12.115 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret
+2022-03-16 08:09:12.116 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider jwt
+2022-03-16 08:09:12.116 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret-jwt
+2022-03-16 08:09:12.127 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-ui.html
+2022-03-16 08:09:12.133 DEBUG 7418 --- [http-nio-8081-exec-1] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /swagger-ui.html
+2022-03-16 08:09:12.134 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/swagger-ui.html
+2022-03-16 08:09:12.135 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/swagger-ui.html
+2022-03-16 08:09:12.136 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/swagger-ui.html
+2022-03-16 08:09:12.136 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:12.139  INFO 7418 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-16 08:09:12.139  INFO 7418 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-16 08:09:12.222  INFO 7418 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 83 ms
+2022-03-16 08:09:12.239 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-ui.html
+2022-03-16 08:09:12.239 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-ui.html
+2022-03-16 08:09:12.319 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-ui.html
+2022-03-16 08:09:12.319 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-ui.html
+2022-03-16 08:09:12.404 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 08:09:12.403 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 08:09:12.405 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 08:09:12.405 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 08:09:12.405 DEBUG 7418 --- [http-nio-8081-exec-5] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js
+2022-03-16 08:09:12.405 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 08:09:12.406 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 08:09:12.406 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 08:09:12.406 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:12.405 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 08:09:12.410 DEBUG 7418 --- [http-nio-8081-exec-2] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/swagger-ui.css
+2022-03-16 08:09:12.410 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 08:09:12.410 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 08:09:12.410 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 08:09:12.410 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:12.412 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 08:09:12.412 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 08:09:12.405 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-4] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/swagger-ui-bundle.js
+2022-03-16 08:09:12.404 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-3] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/springfox.css
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 08:09:12.412 DEBUG 7418 --- [http-nio-8081-exec-6] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/springfox.js
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 08:09:12.413 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 08:09:12.414 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 08:09:12.414 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:12.416 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:12.432 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 08:09:12.432 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 08:09:12.432 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 08:09:12.433 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 08:09:12.432 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 08:09:12.433 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 08:09:12.433 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 08:09:12.434 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 08:09:12.434 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 08:09:12.456 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 08:09:12.558 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 08:09:12.565 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 08:09:12.616 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 08:09:12.617 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 08:09:12.616 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 08:09:12.617 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 08:09:12.630 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 08:09:12.630 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 08:09:12.630 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 08:09:12.631 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 08:09:12.803 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 08:09:12.804 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 08:09:12.805 DEBUG 7418 --- [http-nio-8081-exec-7] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /swagger-resources/configuration/ui
+2022-03-16 08:09:12.805 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 08:09:12.805 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 08:09:12.805 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 08:09:12.805 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:12.806 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 08:09:12.808 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 08:09:12.825 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 08:09:12.829 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 08:09:12.978 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 08:09:12.982 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 08:09:12.983 DEBUG 7418 --- [http-nio-8081-exec-8] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /swagger-resources/configuration/security
+2022-03-16 08:09:12.984 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 08:09:12.984 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 08:09:12.984 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 08:09:12.984 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:12.987 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 08:09:12.990 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 08:09:13.009 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 08:09:13.010 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 08:09:13.048 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources
+2022-03-16 08:09:13.048 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources
+2022-03-16 08:09:13.049 DEBUG 7418 --- [http-nio-8081-exec-9] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /swagger-resources
+2022-03-16 08:09:13.049 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/swagger-resources
+2022-03-16 08:09:13.049 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/swagger-resources
+2022-03-16 08:09:13.050 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/swagger-resources
+2022-03-16 08:09:13.050 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:13.053 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources
+2022-03-16 08:09:13.054 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources
+2022-03-16 08:09:13.060 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources
+2022-03-16 08:09:13.060 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources
+2022-03-16 08:09:13.122 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/
+2022-03-16 08:09:13.122 DEBUG 7418 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/v2/api-docs
+2022-03-16 08:09:13.123 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/
+2022-03-16 08:09:13.123 DEBUG 7418 --- [http-nio-8081-exec-1] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /
+2022-03-16 08:09:13.123 DEBUG 7418 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/v2/api-docs
+2022-03-16 08:09:13.123 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/
+2022-03-16 08:09:13.123 DEBUG 7418 --- [http-nio-8081-exec-10] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /v2/api-docs
+2022-03-16 08:09:13.123 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/
+2022-03-16 08:09:13.123 DEBUG 7418 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/v2/api-docs
+2022-03-16 08:09:13.123 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/
+2022-03-16 08:09:13.123 DEBUG 7418 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/v2/api-docs
+2022-03-16 08:09:13.123 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:13.124 DEBUG 7418 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/v2/api-docs
+2022-03-16 08:09:13.124 DEBUG 7418 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:13.125 DEBUG 7418 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/v2/api-docs
+2022-03-16 08:09:13.135 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/
+2022-03-16 08:09:13.136 DEBUG 7418 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/v2/api-docs
+2022-03-16 08:09:13.138 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/
+2022-03-16 08:09:13.145 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/
+2022-03-16 08:09:13.151 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/
+2022-03-16 08:09:13.157 DEBUG 7418 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/v2/api-docs
+2022-03-16 08:09:13.157 DEBUG 7418 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/v2/api-docs
+2022-03-16 08:09:13.158  WARN 7418 --- [http-nio-8081-exec-1] o.s.web.servlet.PageNotFound             : No mapping for GET /
+2022-03-16 08:09:13.169 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/error
+2022-03-16 08:09:13.169 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/error
+2022-03-16 08:09:13.181 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 08:09:13.182 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 08:09:13.182 DEBUG 7418 --- [http-nio-8081-exec-5] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 08:09:13.182 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 08:09:13.183 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 08:09:13.185 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 08:09:13.185 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:13.188 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 08:09:13.188 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 08:09:13.224 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 08:09:13.225 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 08:09:13.230 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/csrf
+2022-03-16 08:09:13.230 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/csrf
+2022-03-16 08:09:13.230 DEBUG 7418 --- [http-nio-8081-exec-2] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /csrf
+2022-03-16 08:09:13.230 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/csrf
+2022-03-16 08:09:13.230 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/csrf
+2022-03-16 08:09:13.230 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/csrf
+2022-03-16 08:09:13.230 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:13.235 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/csrf
+2022-03-16 08:09:13.235 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/csrf
+2022-03-16 08:09:13.257 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/csrf
+2022-03-16 08:09:13.260 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/csrf
+2022-03-16 08:09:13.267  WARN 7418 --- [http-nio-8081-exec-2] o.s.web.servlet.PageNotFound             : No mapping for GET /csrf
+2022-03-16 08:09:13.271 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/error
+2022-03-16 08:09:13.276 DEBUG 7418 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/error
+2022-03-16 08:09:13.634 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 08:09:13.635 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 08:09:13.638 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 08:09:13.638 DEBUG 7418 --- [http-nio-8081-exec-4] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 08:09:13.638 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 08:09:13.638 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 08:09:13.638 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 08:09:13.638 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:13.635 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 08:09:13.639 DEBUG 7418 --- [http-nio-8081-exec-3] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 08:09:13.635 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 08:09:13.640 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 08:09:13.645 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 08:09:13.653 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 08:09:13.667 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 08:09:13.667 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 08:09:13.668 DEBUG 7418 --- [http-nio-8081-exec-6] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 08:09:13.669 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 08:09:13.669 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:13.669 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 08:09:13.669 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 08:09:13.671 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 08:09:13.672 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 08:09:13.676 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:13.676 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 08:09:13.688 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 08:09:13.689 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 08:09:13.743 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 08:09:13.745 DEBUG 7418 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 08:09:13.743 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 08:09:13.747 DEBUG 7418 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 08:09:13.752 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 08:09:13.762 DEBUG 7418 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 08:09:22.611 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 08:09:22.619 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 08:09:22.620 DEBUG 7418 --- [http-nio-8081-exec-7] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 08:09:22.621 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 08:09:22.623 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 08:09:22.625 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 08:09:22.631 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:22.645 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 08:09:22.646 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 08:09:22.662 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 08:09:22.662 DEBUG 7418 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 08:09:28.896 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/test/addOffers/?amount=10
+2022-03-16 08:09:28.898 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/test/addOffers/?amount=10
+2022-03-16 08:09:28.898 DEBUG 7418 --- [http-nio-8081-exec-8] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /test/addOffers/
+2022-03-16 08:09:28.898 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/test/addOffers/?amount=10
+2022-03-16 08:09:28.898 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/test/addOffers/?amount=10
+2022-03-16 08:09:28.899 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/test/addOffers/?amount=10
+2022-03-16 08:09:28.899 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:28.910 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/test/addOffers/?amount=10
+2022-03-16 08:09:28.912 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/test/addOffers/?amount=10
+2022-03-16 08:09:28.934 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/test/addOffers/?amount=10
+2022-03-16 08:09:28.934 DEBUG 7418 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/test/addOffers/?amount=10
+2022-03-16 08:09:56.866 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 08:09:56.871 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 08:09:56.872 DEBUG 7418 --- [http-nio-8081-exec-9] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 08:09:56.872 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 08:09:56.872 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 08:09:56.872 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 08:09:56.873 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:56.880 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 08:09:56.882 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 08:09:56.899 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 08:09:56.901 DEBUG 7418 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 08:09:59.291 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/offers
+2022-03-16 08:09:59.293 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/offers
+2022-03-16 08:09:59.293 DEBUG 7418 --- [http-nio-8081-exec-1] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /offers
+2022-03-16 08:09:59.293 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/offers
+2022-03-16 08:09:59.294 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/offers
+2022-03-16 08:09:59.294 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/offers
+2022-03-16 08:09:59.294 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:59.299 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/offers
+2022-03-16 08:09:59.300 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/offers
+2022-03-16 08:09:59.307 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/offers
+2022-03-16 08:09:59.307 DEBUG 7418 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/offers
+2022-03-16 08:09:59.446 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 08:09:59.446 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 08:09:59.446 DEBUG 7418 --- [http-nio-8081-exec-5] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 08:09:59.446 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 08:09:59.446 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 08:09:59.446 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 08:09:59.446 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 08:09:59.449 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 08:09:59.449 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 08:09:59.462 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 08:09:59.462 DEBUG 7418 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 13:40:33.715  INFO 10165 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on GoreITs-MacBook-Pro.local with PID 10165 (/Users/goreit/Projects/sidzina/build/classes/java/main started by goreit in /Users/goreit/Projects/sidzina)
+2022-03-16 13:40:33.718  INFO 10165 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
+2022-03-16 13:40:36.108  INFO 10165 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-03-16 13:40:36.389  INFO 10165 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 276ms. Found 4 MongoDB repository interfaces.
+2022-03-16 13:40:37.920  INFO 10165 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-03-16 13:40:37.936  INFO 10165 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-16 13:40:37.937  INFO 10165 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-03-16 13:40:38.102  INFO 10165 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-16 13:40:38.103  INFO 10165 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4296 ms
+2022-03-16 13:40:39.050  INFO 10165 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2022-03-16 13:40:39.051  INFO 10165 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2022-03-16 13:40:39.109  INFO 10165 --- [cluster-ClusterId{value='6231dac7bd6aae155c3e3484', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
 
 com.mongodb.MongoSocketOpenException: Exception opening socket
 	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70) ~[mongodb-driver-core-3.11.2.jar:na]
 	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:128) ~[mongodb-driver-core-3.11.2.jar:na]
 	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117) ~[mongodb-driver-core-3.11.2.jar:na]
-	at java.base/java.lang.Thread.run(Thread.java:830) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
 Caused by: java.net.ConnectException: Connection refused
 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:579) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:660) ~[na:na]
 	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
 	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:339) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:603) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:648) ~[na:na]
 	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:64) ~[mongodb-driver-core-3.11.2.jar:na]
 	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79) ~[mongodb-driver-core-3.11.2.jar:na]
 	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-3.11.2.jar:na]
 	... 3 common frames omitted
 
-2022-02-22 11:40:30.175  WARN 9137 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+2022-03-16 13:40:39.612  WARN 10165 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
 	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
 	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
 
@@ -43,22 +336,250 @@ Caused by: java.net.ConnectException: Connection refused
 	> }
 	> -----------------------------------------------------------------------------------------
 
-2022-02-22 11:40:30.192  INFO 9137 --- [main] org.mongodb.driver.cluster               : Cluster description not yet available. Waiting for 30000 ms before timing out
-2022-02-22 11:53:32.142  INFO 13968 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on gore-pc with PID 13968 (/home/gore/projects/sidzina/build/classes/java/main started by gore in /home/gore/projects/sidzina)
-2022-02-22 11:53:32.144  INFO 13968 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
-2022-02-22 11:53:32.927  INFO 13968 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-02-22 11:53:33.031  INFO 13968 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100ms. Found 3 MongoDB repository interfaces.
-2022-02-22 11:53:33.640  INFO 13968 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2022-02-22 11:53:33.649  INFO 13968 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-02-22 11:53:33.649  INFO 13968 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2022-02-22 11:53:33.736  INFO 13968 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-02-22 11:53:33.737  INFO 13968 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1554 ms
-2022-02-22 11:53:34.117  INFO 13968 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2022-02-22 11:53:34.117  INFO 13968 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
-2022-02-22 11:53:34.158  INFO 13968 --- [cluster-ClusterId{value='6214c0aea06b1d3db261832c', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:27017
-2022-02-22 11:53:34.162  INFO 13968 --- [cluster-ClusterId{value='6214c0aea06b1d3db261832c', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1907613}
-2022-02-22 11:53:34.163  INFO 13968 --- [cluster-ClusterId{value='6214c0aea06b1d3db261832c', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
-2022-02-22 11:53:34.293  WARN 13968 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+2022-03-16 13:40:39.668  INFO 10165 --- [main] org.mongodb.driver.cluster               : Cluster description not yet available. Waiting for 30000 ms before timing out
+2022-03-16 13:41:09.690 ERROR 10165 --- [main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.BeanCreationException. Message: Error creating bean with name 'servletEndpointRegistrar' defined in class path resource [org/springframework/boot/actuate/autoconfigure/endpoint/web/ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthContributorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthContributorRegistry]: Factory method 'healthContributorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'mongoHealthContributor' defined in class path resource [org/springframework/boot/actuate/autoconfigure/mongo/MongoHealthContributorAutoConfiguration.class]: Unsatisfied dependency expressed through method 'mongoHealthContributor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mongoTemplate' defined in class path resource [org/springframework/boot/autoconfigure/data/mongo/MongoDbFactoryDependentConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.mongodb.core.MongoTemplate]: Factory method 'mongoTemplate' threw exception; nested exception is org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+2022-03-16 13:41:10.084 ERROR 10165 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : The specified resolver org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper could NOT be loaded. Keycloak is unconfigured and will deny all requests. Reason: Error creating bean with name 'securityConfig': Unsatisfied dependency expressed through field 'keycloakConfigResolver'; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'KeycloakConfigResolver': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2022-03-16 13:41:10.101  INFO 10165 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-03-16 13:41:10.119  WARN 10165 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [cluster-ClusterId{value='6231dac7bd6aae155c3e3484', description='null'}-localhost:27017] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@15.0.6/java.lang.Thread.sleep(Native Method)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.waitForNext(DefaultServerMonitor.java:217)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+ java.base@15.0.6/java.lang.Thread.run(Thread.java:832)
+2022-03-16 13:41:10.120  WARN 10165 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [CleanCursors-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@15.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@15.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@15.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1661)
+ java.base@15.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@15.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@15.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1056)
+ java.base@15.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1116)
+ java.base@15.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+ java.base@15.0.6/java.lang.Thread.run(Thread.java:832)
+2022-03-16 13:41:10.121  WARN 10165 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2022-03-16 13:41:10.160  INFO 10165 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-03-16 13:41:10.166 ERROR 10165 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:156) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544) ~[spring-context-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at pl.goreit.sidzina.Sidzina.main(Sidzina.java:18) ~[main/:na]
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:88) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:438) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:191) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	... 8 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'servletEndpointRegistrar' defined in class path resource [org/springframework/boot/actuate/autoconfigure/endpoint/web/ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthContributorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthContributorRegistry]: Factory method 'healthContributorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'mongoHealthContributor' defined in class path resource [org/springframework/boot/actuate/autoconfigure/mongo/MongoHealthContributorAutoConfiguration.class]: Unsatisfied dependency expressed through method 'mongoHealthContributor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mongoTemplate' defined in class path resource [org/springframework/boot/autoconfigure/data/mongo/MongoDbFactoryDependentConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.mongodb.core.MongoTemplate]: Factory method 'mongoTemplate' threw exception; nested exception is org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:656) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:211) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:202) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addServletContextInitializerBeans(ServletContextInitializerBeans.java:96) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:85) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:253) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:227) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5135) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:841) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1384) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1374) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:909) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:262) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:421) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:467) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:107) ~[spring-boot-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	... 13 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthContributorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthContributorRegistry]: Factory method 'healthContributorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'mongoHealthContributor' defined in class path resource [org/springframework/boot/actuate/autoconfigure/mongo/MongoHealthContributorAutoConfiguration.class]: Unsatisfied dependency expressed through method 'mongoHealthContributor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mongoTemplate' defined in class path resource [org/springframework/boot/autoconfigure/data/mongo/MongoDbFactoryDependentConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.mongodb.core.MongoTemplate]: Factory method 'mongoTemplate' threw exception; nested exception is org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 53 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthContributorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthContributorRegistry]: Factory method 'healthContributorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'mongoHealthContributor' defined in class path resource [org/springframework/boot/actuate/autoconfigure/mongo/MongoHealthContributorAutoConfiguration.class]: Unsatisfied dependency expressed through method 'mongoHealthContributor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mongoTemplate' defined in class path resource [org/springframework/boot/autoconfigure/data/mongo/MongoDbFactoryDependentConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.mongodb.core.MongoTemplate]: Factory method 'mongoTemplate' threw exception; nested exception is org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:539) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108) ~[spring-context-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.createEndpointBean(EndpointDiscoverer.java:143) ~[spring-boot-actuator-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.createEndpointBeans(EndpointDiscoverer.java:133) ~[spring-boot-actuator-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.discoverEndpoints(EndpointDiscoverer.java:122) ~[spring-boot-actuator-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.getEndpoints(EndpointDiscoverer.java:116) ~[spring-boot-actuator-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.servletEndpointRegistrar(ServletEndpointManagementContextConfiguration.java:65) ~[spring-boot-actuator-autoconfigure-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 54 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthContributorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthContributorRegistry]: Factory method 'healthContributorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'mongoHealthContributor' defined in class path resource [org/springframework/boot/actuate/autoconfigure/mongo/MongoHealthContributorAutoConfiguration.class]: Unsatisfied dependency expressed through method 'mongoHealthContributor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mongoTemplate' defined in class path resource [org/springframework/boot/autoconfigure/data/mongo/MongoDbFactoryDependentConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.mongodb.core.MongoTemplate]: Factory method 'mongoTemplate' threw exception; nested exception is org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:656) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1287) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1207) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 74 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthContributorRegistry]: Factory method 'healthContributorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'mongoHealthContributor' defined in class path resource [org/springframework/boot/actuate/autoconfigure/mongo/MongoHealthContributorAutoConfiguration.class]: Unsatisfied dependency expressed through method 'mongoHealthContributor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mongoTemplate' defined in class path resource [org/springframework/boot/autoconfigure/data/mongo/MongoDbFactoryDependentConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.mongodb.core.MongoTemplate]: Factory method 'mongoTemplate' threw exception; nested exception is org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 88 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'mongoHealthContributor' defined in class path resource [org/springframework/boot/actuate/autoconfigure/mongo/MongoHealthContributorAutoConfiguration.class]: Unsatisfied dependency expressed through method 'mongoHealthContributor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mongoTemplate' defined in class path resource [org/springframework/boot/autoconfigure/data/mongo/MongoDbFactoryDependentConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.mongodb.core.MongoTemplate]: Factory method 'mongoTemplate' threw exception; nested exception is org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:539) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:617) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeansOfType(DefaultListableBeanFactory.java:605) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBeansOfType(AbstractApplicationContext.java:1242) ~[spring-context-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.boot.actuate.autoconfigure.health.HealthEndpointConfiguration.healthContributorRegistry(HealthEndpointConfiguration.java:78) ~[spring-boot-actuator-autoconfigure-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 89 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mongoTemplate' defined in class path resource [org/springframework/boot/autoconfigure/data/mongo/MongoDbFactoryDependentConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.mongodb.core.MongoTemplate]: Factory method 'mongoTemplate' threw exception; nested exception is org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:656) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1503) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1467) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1386) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1245) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1207) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 107 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.mongodb.core.MongoTemplate]: Factory method 'mongoTemplate' threw exception; nested exception is org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 124 common frames omitted
+Caused by: org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.data.mongodb.core.MongoExceptionTranslator.translateExceptionIfPossible(MongoExceptionTranslator.java:90) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.potentiallyConvertRuntimeException(MongoTemplate.java:2902) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.execute(MongoTemplate.java:587) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.DefaultIndexOperations.execute(DefaultIndexOperations.java:214) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.DefaultIndexOperations.ensureIndex(DefaultIndexOperations.java:121) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator.createIndex(MongoPersistentEntityIndexCreator.java:158) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator.checkForAndCreateIndexes(MongoPersistentEntityIndexCreator.java:148) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator.checkForIndexes(MongoPersistentEntityIndexCreator.java:130) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator.<init>(MongoPersistentEntityIndexCreator.java:95) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.index.MongoPersistentEntityIndexCreator.<init>(MongoPersistentEntityIndexCreator.java:72) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.<init>(MongoTemplate.java:275) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.boot.autoconfigure.data.mongo.MongoDbFactoryDependentConfiguration.mongoTemplate(MongoDbFactoryDependentConfiguration.java:63) ~[spring-boot-autoconfigure-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 125 common frames omitted
+Caused by: com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at com.mongodb.internal.connection.BaseCluster.getDescription(BaseCluster.java:182) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.AbstractMultiServerCluster.getDescription(AbstractMultiServerCluster.java:54) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate.getConnectedClusterDescription(MongoClientDelegate.java:145) ~[mongodb-driver-3.11.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate.createClientSession(MongoClientDelegate.java:100) ~[mongodb-driver-3.11.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.getClientSession(MongoClientDelegate.java:277) ~[mongodb-driver-3.11.2.jar:na]
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.execute(MongoClientDelegate.java:201) ~[mongodb-driver-3.11.2.jar:na]
+	at com.mongodb.client.internal.MongoCollectionImpl.executeCreateIndexes(MongoCollectionImpl.java:886) ~[mongodb-driver-3.11.2.jar:na]
+	at com.mongodb.client.internal.MongoCollectionImpl.createIndexes(MongoCollectionImpl.java:869) ~[mongodb-driver-3.11.2.jar:na]
+	at com.mongodb.client.internal.MongoCollectionImpl.createIndexes(MongoCollectionImpl.java:864) ~[mongodb-driver-3.11.2.jar:na]
+	at com.mongodb.client.internal.MongoCollectionImpl.createIndex(MongoCollectionImpl.java:849) ~[mongodb-driver-3.11.2.jar:na]
+	at org.springframework.data.mongodb.core.DefaultIndexOperations.lambda$ensureIndex$0(DefaultIndexOperations.java:131) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.execute(MongoTemplate.java:585) ~[spring-data-mongodb-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	... 139 common frames omitted
+
+2022-03-16 13:42:06.535  INFO 10260 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on GoreITs-MacBook-Pro.local with PID 10260 (/Users/goreit/Projects/sidzina/build/classes/java/main started by goreit in /Users/goreit/Projects/sidzina)
+2022-03-16 13:42:06.537  INFO 10260 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
+2022-03-16 13:42:08.649  INFO 10260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-03-16 13:42:08.947  INFO 10260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 290ms. Found 4 MongoDB repository interfaces.
+2022-03-16 13:42:10.479  INFO 10260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-03-16 13:42:10.494  INFO 10260 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-16 13:42:10.494  INFO 10260 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-03-16 13:42:10.660  INFO 10260 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-16 13:42:10.660  INFO 10260 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4041 ms
+2022-03-16 13:42:11.600  INFO 10260 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2022-03-16 13:42:11.601  INFO 10260 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2022-03-16 13:42:11.656  INFO 10260 --- [cluster-ClusterId{value='6231db232a7ce914d1d43216', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:128) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117) ~[mongodb-driver-core-3.11.2.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:660) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:648) ~[na:na]
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:64) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-3.11.2.jar:na]
+	... 3 common frames omitted
+
+2022-03-16 13:42:12.100  WARN 10260 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
 	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
 	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
 
@@ -73,38 +594,38 @@ Caused by: java.net.ConnectException: Connection refused
 	> }
 	> -----------------------------------------------------------------------------------------
 
-2022-02-22 11:53:34.449  INFO 13968 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27017
-2022-02-22 11:53:34.624 DEBUG 13968 --- [main] s.f.KeycloakSecurityContextRequestFilter : Filter 'keycloakSecurityContextRequestFilter' configured for use
-2022-02-22 11:53:34.625 DEBUG 13968 --- [main] f.KeycloakAuthenticationProcessingFilter : Filter 'keycloakAuthenticationProcessingFilter' configured for use
-2022-02-22 11:53:34.625 DEBUG 13968 --- [main] o.k.a.s.f.KeycloakPreAuthActionsFilter   : Filter 'keycloakPreAuthActionsFilter' configured for use
-2022-02-22 11:53:34.626 DEBUG 13968 --- [main] a.s.f.KeycloakAuthenticatedActionsFilter : Filter 'keycloakAuthenticatedActionsRequestFilter' configured for use
-2022-02-22 11:53:34.627 DEBUG 13968 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : Using org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper to resolve Keycloak configuration on a per-request basis.
-2022-02-22 11:53:34.949  INFO 13968 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2022-02-22 11:53:35.057  INFO 13968 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-02-22 11:53:35.106  INFO 13968 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43549c6c, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e8fe7db, org.springframework.security.web.header.HeaderWriterFilter@3539cf45, org.springframework.web.filter.CorsFilter@7d551ec6, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@983050b, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@1af82ba8, org.springframework.security.web.authentication.logout.LogoutFilter@58d79479, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64908ab9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ea19c97, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@5d15789f, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@5abb7a8f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7792e14f, org.springframework.security.web.session.SessionManagementFilter@556a6320, org.springframework.security.web.access.ExceptionTranslationFilter@6f69e2d8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@35c95869]
-2022-02-22 11:53:35.123  INFO 13968 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'threadPoolTaskScheduler'
-2022-02-22 11:53:35.435  INFO 13968 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-02-22 11:53:35.445  INFO 13968 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-02-22 11:53:35.469  INFO 13968 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-02-22 11:53:35.605  INFO 13968 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
-2022-02-22 11:53:35.607  INFO 13968 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
-2022-02-22 11:53:35.674  INFO 13968 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2022-02-22 11:53:35.677  INFO 13968 --- [main] pl.goreit.sidzina.Sidzina                : Started Sidzina in 3.867 seconds (JVM running for 4.174)
-2022-02-22 11:54:33.266  INFO 14717 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on gore-pc with PID 14717 (/home/gore/projects/sidzina/build/classes/java/main started by gore in /home/gore/projects/sidzina)
-2022-02-22 11:54:33.269  INFO 14717 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
-2022-02-22 11:54:34.164  INFO 14717 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-02-22 11:54:34.272  INFO 14717 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 105ms. Found 3 MongoDB repository interfaces.
-2022-02-22 11:54:34.945  INFO 14717 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2022-02-22 11:54:34.954  INFO 14717 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-02-22 11:54:34.954  INFO 14717 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2022-02-22 11:54:35.039  INFO 14717 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-02-22 11:54:35.040  INFO 14717 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1726 ms
-2022-02-22 11:54:35.450  INFO 14717 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2022-02-22 11:54:35.451  INFO 14717 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
-2022-02-22 11:54:35.495  INFO 14717 --- [cluster-ClusterId{value='6214c0eb3694391733999612', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:3}] to localhost:27017
-2022-02-22 11:54:35.500  INFO 14717 --- [cluster-ClusterId{value='6214c0eb3694391733999612', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2262967}
-2022-02-22 11:54:35.501  INFO 14717 --- [cluster-ClusterId{value='6214c0eb3694391733999612', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
-2022-02-22 11:54:35.650  WARN 14717 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+2022-03-16 13:42:12.131  INFO 10260 --- [main] org.mongodb.driver.cluster               : Cluster description not yet available. Waiting for 30000 ms before timing out
+2022-03-16 13:42:43.043  INFO 10281 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on GoreITs-MacBook-Pro.local with PID 10281 (/Users/goreit/Projects/sidzina/build/classes/java/main started by goreit in /Users/goreit/Projects/sidzina)
+2022-03-16 13:42:43.045  INFO 10281 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
+2022-03-16 13:42:45.299  INFO 10281 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-03-16 13:42:45.553  INFO 10281 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 246ms. Found 4 MongoDB repository interfaces.
+2022-03-16 13:42:47.151  INFO 10281 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-03-16 13:42:47.164  INFO 10281 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-16 13:42:47.165  INFO 10281 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-03-16 13:42:47.320  INFO 10281 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-16 13:42:47.320  INFO 10281 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4176 ms
+2022-03-16 13:42:48.348  INFO 10281 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2022-03-16 13:42:48.350  INFO 10281 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
+2022-03-16 13:42:48.400  INFO 10281 --- [cluster-ClusterId{value='6231db48de9fc179a5895564', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:128) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117) ~[mongodb-driver-core-3.11.2.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:660) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:648) ~[na:na]
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:64) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-3.11.2.jar:na]
+	... 3 common frames omitted
+
+2022-03-16 13:42:48.789  WARN 10281 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
 	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
 	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
 
@@ -119,90 +640,288 @@ Caused by: java.net.ConnectException: Connection refused
 	> }
 	> -----------------------------------------------------------------------------------------
 
-2022-02-22 11:54:35.780  INFO 14717 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:4}] to localhost:27017
-2022-02-22 11:54:35.953 DEBUG 14717 --- [main] s.f.KeycloakSecurityContextRequestFilter : Filter 'keycloakSecurityContextRequestFilter' configured for use
-2022-02-22 11:54:35.954 DEBUG 14717 --- [main] f.KeycloakAuthenticationProcessingFilter : Filter 'keycloakAuthenticationProcessingFilter' configured for use
-2022-02-22 11:54:35.954 DEBUG 14717 --- [main] o.k.a.s.f.KeycloakPreAuthActionsFilter   : Filter 'keycloakPreAuthActionsFilter' configured for use
-2022-02-22 11:54:35.955 DEBUG 14717 --- [main] a.s.f.KeycloakAuthenticatedActionsFilter : Filter 'keycloakAuthenticatedActionsRequestFilter' configured for use
-2022-02-22 11:54:35.957 DEBUG 14717 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : Using org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper to resolve Keycloak configuration on a per-request basis.
-2022-02-22 11:54:36.280  INFO 14717 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2022-02-22 11:54:36.398  INFO 14717 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-02-22 11:54:36.454  INFO 14717 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63c6c5e5, org.springframework.security.web.context.SecurityContextPersistenceFilter@69c0bae6, org.springframework.security.web.header.HeaderWriterFilter@7c39193f, org.springframework.web.filter.CorsFilter@72b10258, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@50734cea, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@7bc8ffbc, org.springframework.security.web.authentication.logout.LogoutFilter@4edde05c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5eb041b5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5513a46b, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@784212, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@5ac646b3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6edb2c7b, org.springframework.security.web.session.SessionManagementFilter@6e225c34, org.springframework.security.web.access.ExceptionTranslationFilter@29fc83c5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7c37ac3c]
-2022-02-22 11:54:36.472  INFO 14717 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'threadPoolTaskScheduler'
-2022-02-22 11:54:36.784  INFO 14717 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-02-22 11:54:36.792  INFO 14717 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-02-22 11:54:36.815  INFO 14717 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-02-22 11:54:36.932  INFO 14717 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
-2022-02-22 11:54:36.934  INFO 14717 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
-2022-02-22 11:54:36.986  INFO 14717 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2022-02-22 11:54:36.989  INFO 14717 --- [main] pl.goreit.sidzina.Sidzina                : Started Sidzina in 4.076 seconds (JVM running for 4.35)
-2022-02-22 12:01:12.972 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/message
-2022-02-22 12:01:12.977 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Using provider 'secret' for authentication of client 'sidzina'
-2022-02-22 12:01:12.978 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret
-2022-02-22 12:01:12.979 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider jwt
-2022-02-22 12:01:12.979 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret-jwt
-2022-02-22 12:01:12.980 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret
-2022-02-22 12:01:12.980 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider jwt
-2022-02-22 12:01:12.980 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret-jwt
-2022-02-22 12:01:12.984 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/message
-2022-02-22 12:01:12.985 DEBUG 14717 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : Preflight request returning
-2022-02-22 12:01:12.989 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/message
-2022-02-22 12:01:12.989 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/message
-2022-02-22 12:01:12.992 DEBUG 14717 --- [http-nio-8081-exec-2] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /message
-2022-02-22 12:01:12.993 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/message
-2022-02-22 12:01:12.993 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Origin: http://192.168.0.187:4200 uri: http://localhost:8081/message
-2022-02-22 12:01:12.993 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/message
-2022-02-22 12:01:12.993 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
-2022-02-22 12:01:12.994  INFO 14717 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-02-22 12:01:12.994  INFO 14717 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-02-22 12:01:13.000  INFO 14717 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2022-02-22 12:01:13.010 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/message
-2022-02-22 12:01:13.010 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/message
-2022-02-22 12:01:13.020 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/message
-2022-02-22 12:01:13.020 DEBUG 14717 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/message
-2022-02-22 12:03:51.641  INFO 4965 --- [main] pl.goreit.sidzina.Sidzina                : Starting Sidzina on gore-pc with PID 4965 (/home/gore/projects/sidzina/build/classes/java/main started by gore in /home/gore/projects/sidzina)
-2022-02-22 12:03:51.648  INFO 4965 --- [main] pl.goreit.sidzina.Sidzina                : The following profiles are active: local
-2022-02-22 12:03:53.066  INFO 4965 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-02-22 12:03:53.216  INFO 4965 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145ms. Found 3 MongoDB repository interfaces.
-2022-02-22 12:03:54.087  INFO 4965 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2022-02-22 12:03:54.098  INFO 4965 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-02-22 12:03:54.098  INFO 4965 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
-2022-02-22 12:03:54.199  INFO 4965 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-02-22 12:03:54.200  INFO 4965 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2460 ms
-2022-02-22 12:03:54.693  INFO 4965 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
-2022-02-22 12:03:54.694  INFO 4965 --- [main] org.mongodb.driver.cluster               : Adding discovered server localhost:27017 to client view of cluster
-2022-02-22 12:03:54.762  INFO 4965 --- [cluster-ClusterId{value='6214c31a6459fc7a917495b6', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:27017
-2022-02-22 12:03:54.767  INFO 4965 --- [cluster-ClusterId{value='6214c31a6459fc7a917495b6', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2655034}
-2022-02-22 12:03:54.769  INFO 4965 --- [cluster-ClusterId{value='6214c31a6459fc7a917495b6', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
-2022-02-22 12:03:54.937  WARN 4965 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
-	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
-	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+2022-03-16 13:42:48.813  INFO 10281 --- [main] org.mongodb.driver.cluster               : Cluster description not yet available. Waiting for 30000 ms before timing out
+2022-03-16 13:43:15.279  INFO 10281 --- [cluster-ClusterId{value='6231db48de9fc179a5895564', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
 
-	> -----------------------------------------------------------------------------------------
-	> @EventListener(ApplicationReadyEvent.class)
-	> public void initIndicesAfterStartup() {
-	>
-	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
-	>
-	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
-	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
-	> }
-	> -----------------------------------------------------------------------------------------
+com.mongodb.MongoSocketReadException: Prematurely reached end of stream
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:112) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:580) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessage(InternalStreamConnection.java:445) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:299) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.sendAndReceive(InternalStreamConnection.java:259) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.CommandHelper.sendAndReceive(CommandHelper.java:83) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.CommandHelper.executeCommand(CommandHelper.java:33) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnectionInitializer.initializeConnectionDescription(InternalStreamConnectionInitializer.java:105) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnectionInitializer.initialize(InternalStreamConnectionInitializer.java:62) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:129) ~[mongodb-driver-core-3.11.2.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117) ~[mongodb-driver-core-3.11.2.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
 
-2022-02-22 12:03:55.077  INFO 4965 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:27017
-2022-02-22 12:03:55.342 DEBUG 4965 --- [main] s.f.KeycloakSecurityContextRequestFilter : Filter 'keycloakSecurityContextRequestFilter' configured for use
-2022-02-22 12:03:55.343 DEBUG 4965 --- [main] f.KeycloakAuthenticationProcessingFilter : Filter 'keycloakAuthenticationProcessingFilter' configured for use
-2022-02-22 12:03:55.344 DEBUG 4965 --- [main] o.k.a.s.f.KeycloakPreAuthActionsFilter   : Filter 'keycloakPreAuthActionsFilter' configured for use
-2022-02-22 12:03:55.345 DEBUG 4965 --- [main] a.s.f.KeycloakAuthenticatedActionsFilter : Filter 'keycloakAuthenticatedActionsRequestFilter' configured for use
-2022-02-22 12:03:55.346 DEBUG 4965 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : Using org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper to resolve Keycloak configuration on a per-request basis.
-2022-02-22 12:03:55.780  INFO 4965 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2022-02-22 12:03:55.907  INFO 4965 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-02-22 12:03:55.964  INFO 4965 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74c23525, org.springframework.security.web.context.SecurityContextPersistenceFilter@2ae88712, org.springframework.security.web.header.HeaderWriterFilter@525b9df4, org.springframework.web.filter.CorsFilter@3adde4ea, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@4cf5d999, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@2f262474, org.springframework.security.web.authentication.logout.LogoutFilter@129aaac1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@da11873, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@495f7ca4, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@5c0272e0, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@60c4cf2b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@176054b7, org.springframework.security.web.session.SessionManagementFilter@36857d32, org.springframework.security.web.access.ExceptionTranslationFilter@14fe085b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@682fe17b]
-2022-02-22 12:03:55.990  INFO 4965 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'threadPoolTaskScheduler'
-2022-02-22 12:03:56.354  INFO 4965 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2022-02-22 12:03:56.368  INFO 4965 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2022-02-22 12:03:56.397  INFO 4965 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2022-02-22 12:03:56.554  INFO 4965 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
-2022-02-22 12:03:56.556  INFO 4965 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
-2022-02-22 12:03:56.657  INFO 4965 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2022-02-22 12:03:56.660  INFO 4965 --- [main] pl.goreit.sidzina.Sidzina                : Started Sidzina in 5.638 seconds (JVM running for 6.254)
+2022-03-16 13:43:15.833  INFO 10281 --- [cluster-ClusterId{value='6231db48de9fc179a5895564', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:55, serverValue:1}] to localhost:27017
+2022-03-16 13:43:15.845  INFO 10281 --- [cluster-ClusterId{value='6231db48de9fc179a5895564', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4885042}
+2022-03-16 13:43:15.846  INFO 10281 --- [cluster-ClusterId{value='6231db48de9fc179a5895564', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2022-03-16 13:43:16.004  INFO 10281 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:56, serverValue:2}] to localhost:27017
+2022-03-16 13:43:16.677 DEBUG 10281 --- [main] s.f.KeycloakSecurityContextRequestFilter : Filter 'keycloakSecurityContextRequestFilter' configured for use
+2022-03-16 13:43:16.678 DEBUG 10281 --- [main] f.KeycloakAuthenticationProcessingFilter : Filter 'keycloakAuthenticationProcessingFilter' configured for use
+2022-03-16 13:43:16.679 DEBUG 10281 --- [main] o.k.a.s.f.KeycloakPreAuthActionsFilter   : Filter 'keycloakPreAuthActionsFilter' configured for use
+2022-03-16 13:43:16.679 DEBUG 10281 --- [main] a.s.f.KeycloakAuthenticatedActionsFilter : Filter 'keycloakAuthenticatedActionsRequestFilter' configured for use
+2022-03-16 13:43:16.683 DEBUG 10281 --- [main] k.a.t.AbstractKeycloakAuthenticatorValve : Using org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolverWrapper to resolve Keycloak configuration on a per-request basis.
+2022-03-16 13:43:17.812  INFO 10281 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-03-16 13:43:18.121  INFO 10281 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-16 13:43:18.230  INFO 10281 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7b6854b5, org.springframework.security.web.context.SecurityContextPersistenceFilter@5862dda4, org.springframework.security.web.header.HeaderWriterFilter@7fce1069, org.springframework.web.filter.CorsFilter@35af1558, org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter@2fca282c, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter@1aaaabd1, org.springframework.security.web.authentication.logout.LogoutFilter@9a37591, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@fe09374, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27575bcd, org.keycloak.adapters.springsecurity.filter.KeycloakSecurityContextRequestFilter@24b38e8f, org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticatedActionsFilter@5cf072ea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@357cdb00, org.springframework.security.web.session.SessionManagementFilter@70cac22a, org.springframework.security.web.access.ExceptionTranslationFilter@4edde05c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ee1b017]
+2022-03-16 13:43:18.273  INFO 10281 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'threadPoolTaskScheduler'
+2022-03-16 13:43:19.447  INFO 10281 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-03-16 13:43:19.494  INFO 10281 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-03-16 13:43:19.586  INFO 10281 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-03-16 13:43:21.960  INFO 10281 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
+2022-03-16 13:43:21.968  INFO 10281 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
+2022-03-16 13:43:22.368  INFO 10281 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-03-16 13:43:22.379  INFO 10281 --- [main] pl.goreit.sidzina.Sidzina                : Started Sidzina in 40.008 seconds (JVM running for 40.724)
+2022-03-16 13:43:30.115 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-ui.html
+2022-03-16 13:43:30.136 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Using provider 'secret' for authentication of client 'sidzina'
+2022-03-16 13:43:30.149 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret
+2022-03-16 13:43:30.151 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider jwt
+2022-03-16 13:43:30.152 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret-jwt
+2022-03-16 13:43:30.155 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret
+2022-03-16 13:43:30.156 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider jwt
+2022-03-16 13:43:30.156 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.a.ClientCredentialsProviderUtils   : Loaded clientCredentialsProvider secret-jwt
+2022-03-16 13:43:30.173 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-ui.html
+2022-03-16 13:43:30.180 DEBUG 10281 --- [http-nio-8081-exec-1] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /swagger-ui.html
+2022-03-16 13:43:30.184 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/swagger-ui.html
+2022-03-16 13:43:30.185 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/swagger-ui.html
+2022-03-16 13:43:30.186 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/swagger-ui.html
+2022-03-16 13:43:30.186 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:30.190  INFO 10281 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-16 13:43:30.190  INFO 10281 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-16 13:43:30.268  INFO 10281 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 78 ms
+2022-03-16 13:43:30.285 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-ui.html
+2022-03-16 13:43:30.285 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-ui.html
+2022-03-16 13:43:30.361 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-ui.html
+2022-03-16 13:43:30.362 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-ui.html
+2022-03-16 13:43:30.457 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 13:43:30.458 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 13:43:30.458 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 13:43:30.458 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 13:43:30.458 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 13:43:30.458 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 13:43:30.459 DEBUG 10281 --- [http-nio-8081-exec-6] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/springfox.js
+2022-03-16 13:43:30.457 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 13:43:30.459 DEBUG 10281 --- [http-nio-8081-exec-2] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/swagger-ui.css
+2022-03-16 13:43:30.459 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 13:43:30.460 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 13:43:30.461 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 13:43:30.461 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 13:43:30.464 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 13:43:30.461 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 13:43:30.463 DEBUG 10281 --- [http-nio-8081-exec-3] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/springfox.css
+2022-03-16 13:43:30.463 DEBUG 10281 --- [http-nio-8081-exec-5] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js
+2022-03-16 13:43:30.464 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 13:43:30.464 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 13:43:30.464 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 13:43:30.465 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:30.465 DEBUG 10281 --- [http-nio-8081-exec-4] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/swagger-ui-bundle.js
+2022-03-16 13:43:30.465 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 13:43:30.465 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 13:43:30.466 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 13:43:30.465 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 13:43:30.468 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 13:43:30.466 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:30.469 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 13:43:30.473 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 13:43:30.473 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 13:43:30.474 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 13:43:30.475 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:30.475 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:30.475 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:30.481 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 13:43:30.481 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 13:43:30.481 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 13:43:30.482 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 13:43:30.482 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 13:43:30.482 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 13:43:30.485 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 13:43:30.485 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 13:43:30.488 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 13:43:30.489 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 13:43:30.591 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 13:43:30.591 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 13:43:30.592 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.js?v=2.9.2
+2022-03-16 13:43:30.592 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-bundle.js?v=2.9.2
+2022-03-16 13:43:30.594 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 13:43:30.596 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js?v=2.9.2
+2022-03-16 13:43:30.609 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 13:43:30.610 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/swagger-ui.css?v=2.9.2
+2022-03-16 13:43:30.610 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 13:43:30.611 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/springfox.css?v=2.9.2
+2022-03-16 13:43:30.771 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 13:43:30.772 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 13:43:30.772 DEBUG 10281 --- [http-nio-8081-exec-7] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /swagger-resources/configuration/ui
+2022-03-16 13:43:30.773 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 13:43:30.775 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 13:43:30.775 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 13:43:30.775 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:30.779 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2
+2022-03-16 13:43:30.779 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 13:43:30.781 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2
+2022-03-16 13:43:30.782 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 13:43:30.782 DEBUG 10281 --- [http-nio-8081-exec-8] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/favicon-32x32.png
+2022-03-16 13:43:30.782 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2
+2022-03-16 13:43:30.783 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2
+2022-03-16 13:43:30.783 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2
+2022-03-16 13:43:30.783 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:30.789 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2
+2022-03-16 13:43:30.791 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2
+2022-03-16 13:43:30.810 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 13:43:30.817 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/ui
+2022-03-16 13:43:30.869 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2
+2022-03-16 13:43:30.870 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/favicon-32x32.png?v=2.9.2
+2022-03-16 13:43:31.003 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 13:43:31.003 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 13:43:31.003 DEBUG 10281 --- [http-nio-8081-exec-9] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /swagger-resources/configuration/security
+2022-03-16 13:43:31.003 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 13:43:31.003 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 13:43:31.003 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 13:43:31.003 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:31.005 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 13:43:31.008 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 13:43:31.012 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 13:43:31.012 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources/configuration/security
+2022-03-16 13:43:31.034 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources
+2022-03-16 13:43:31.034 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources
+2022-03-16 13:43:31.034 DEBUG 10281 --- [http-nio-8081-exec-10] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /swagger-resources
+2022-03-16 13:43:31.034 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/swagger-resources
+2022-03-16 13:43:31.034 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/swagger-resources
+2022-03-16 13:43:31.035 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/swagger-resources
+2022-03-16 13:43:31.035 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:31.035 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources
+2022-03-16 13:43:31.035 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources
+2022-03-16 13:43:31.042 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/swagger-resources
+2022-03-16 13:43:31.043 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/swagger-resources
+2022-03-16 13:43:31.092 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/v2/api-docs
+2022-03-16 13:43:31.092 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/
+2022-03-16 13:43:31.093 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/v2/api-docs
+2022-03-16 13:43:31.093 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/
+2022-03-16 13:43:31.093 DEBUG 10281 --- [http-nio-8081-exec-1] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /v2/api-docs
+2022-03-16 13:43:31.093 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/v2/api-docs
+2022-03-16 13:43:31.093 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/v2/api-docs
+2022-03-16 13:43:31.093 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/v2/api-docs
+2022-03-16 13:43:31.093 DEBUG 10281 --- [http-nio-8081-exec-6] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /
+2022-03-16 13:43:31.093 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:31.094 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/
+2022-03-16 13:43:31.094 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/
+2022-03-16 13:43:31.094 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/
+2022-03-16 13:43:31.094 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:31.094 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/v2/api-docs
+2022-03-16 13:43:31.094 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/v2/api-docs
+2022-03-16 13:43:31.103 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/
+2022-03-16 13:43:31.103 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/v2/api-docs
+2022-03-16 13:43:31.104 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/
+2022-03-16 13:43:31.104 DEBUG 10281 --- [http-nio-8081-exec-1] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/v2/api-docs
+2022-03-16 13:43:31.105 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/
+2022-03-16 13:43:31.106 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/
+2022-03-16 13:43:31.112  WARN 10281 --- [http-nio-8081-exec-6] o.s.web.servlet.PageNotFound             : No mapping for GET /
+2022-03-16 13:43:31.127 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/error
+2022-03-16 13:43:31.127 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/error
+2022-03-16 13:43:31.143 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 13:43:31.144 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 13:43:31.144 DEBUG 10281 --- [http-nio-8081-exec-5] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 13:43:31.144 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 13:43:31.144 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 13:43:31.145 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 13:43:31.145 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:31.156 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 13:43:31.156 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 13:43:31.180 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/csrf
+2022-03-16 13:43:31.185 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/csrf
+2022-03-16 13:43:31.190 DEBUG 10281 --- [http-nio-8081-exec-3] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /csrf
+2022-03-16 13:43:31.193 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/csrf
+2022-03-16 13:43:31.193 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : Origin: null uri: http://localhost:8081/csrf
+2022-03-16 13:43:31.193 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/csrf
+2022-03-16 13:43:31.193 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:31.194 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/csrf
+2022-03-16 13:43:31.206 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/csrf
+2022-03-16 13:43:31.207 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 13:43:31.207 DEBUG 10281 --- [http-nio-8081-exec-5] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+2022-03-16 13:43:31.243 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/csrf
+2022-03-16 13:43:31.243 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/csrf
+2022-03-16 13:43:31.244  WARN 10281 --- [http-nio-8081-exec-3] o.s.web.servlet.PageNotFound             : No mapping for GET /csrf
+2022-03-16 13:43:31.245 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/error
+2022-03-16 13:43:31.245 DEBUG 10281 --- [http-nio-8081-exec-3] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/error
+2022-03-16 13:43:31.484 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 13:43:31.484 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 13:43:31.484 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 13:43:31.484 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 13:43:31.487 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 13:43:31.487 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 13:43:31.488 DEBUG 10281 --- [http-nio-8081-exec-2] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 13:43:31.488 DEBUG 10281 --- [http-nio-8081-exec-4] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 13:43:31.487 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-7] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 13:43:31.488 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 13:43:31.488 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 13:43:31.487 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-8] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:31.489 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 13:43:31.490 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 13:43:31.490 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:31.500 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:31.501 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 13:43:31.501 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 13:43:31.500 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 13:43:31.503 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 13:43:31.503 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 13:43:31.506 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 13:43:31.507 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 13:43:31.514 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 13:43:31.539 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 13:43:31.539 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 13:43:31.539 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 13:43:31.539 DEBUG 10281 --- [http-nio-8081-exec-4] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+2022-03-16 13:43:31.539 DEBUG 10281 --- [http-nio-8081-exec-7] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+2022-03-16 13:43:31.539 DEBUG 10281 --- [http-nio-8081-exec-2] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+2022-03-16 13:43:31.553 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 13:43:31.555 DEBUG 10281 --- [http-nio-8081-exec-8] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+2022-03-16 13:43:33.075 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 13:43:33.076 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 13:43:33.076 DEBUG 10281 --- [http-nio-8081-exec-9] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 13:43:33.077 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 13:43:33.078 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 13:43:33.078 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 13:43:33.078 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:33.083 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 13:43:33.089 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 13:43:33.102 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 13:43:33.104 DEBUG 10281 --- [http-nio-8081-exec-9] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+2022-03-16 13:43:37.432 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/offers
+2022-03-16 13:43:37.455 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/offers
+2022-03-16 13:43:37.458 DEBUG 10281 --- [http-nio-8081-exec-10] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /offers
+2022-03-16 13:43:37.458 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/offers
+2022-03-16 13:43:37.460 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/offers
+2022-03-16 13:43:37.461 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/offers
+2022-03-16 13:43:37.462 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:37.479 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/offers
+2022-03-16 13:43:37.479 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/offers
+2022-03-16 13:43:37.510 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/offers
+2022-03-16 13:43:37.510 DEBUG 10281 --- [http-nio-8081-exec-10] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/offers
+2022-03-16 13:43:37.739  INFO 10281 --- [http-nio-8081-exec-10] p.g.sidzina.domain.service.OfferService  : correctly added offerpl.goreit.sidzina.domain.model.Offer@7080cde8
+2022-03-16 13:43:37.814 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 13:43:37.818 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 13:43:37.819 DEBUG 10281 --- [http-nio-8081-exec-6] .k.a.t.AbstractAuthenticatedActionsValve : AuthenticatedActionsValve.invoke /webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 13:43:37.820 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : AuthenticatedActionsValve.invoke http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 13:43:37.821 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : Origin: http://localhost:8081 uri: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 13:43:37.821 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : cors validation not needed as we are not a secure session or origin header was null: http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 13:43:37.822 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.a.AuthenticatedActionsHandler        : Policy enforcement is disabled.
+2022-03-16 13:43:37.839 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 13:43:37.847 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 13:43:37.893 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : adminRequest http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+2022-03-16 13:43:37.894 DEBUG 10281 --- [http-nio-8081-exec-6] o.k.adapters.PreAuthActionsHandler       : checkCorsPreflight http://localhost:8081/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
