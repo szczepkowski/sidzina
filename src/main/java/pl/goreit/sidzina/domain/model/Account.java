@@ -9,27 +9,46 @@ import java.time.LocalDateTime;
 public class Account {
 
     @Id
-    private String userId;
+    private String id;
+    private Company company;
     private Person person;
+    private Address address;
 
-    private LocalDateTime createdAt;
+    private Type type;
 
-    public Account(String userId, Person person) {
-        this.userId = userId;
+    public Account(String id, Person person, Address address, Company company) {
+        this.id = id;
         this.person = person;
-        this.createdAt = LocalDateTime.now();
+        this.address = address;
+        this.company = company;
+        this.type = Type.COMPANY;
+    }
+
+    public Account(String id, Person person, Address address) {
+        this.id = id;
+        this.person = person;
+        this.address = address;
+        this.type = Type.PRIVATE;
     }
 
 
-    public String getUserId() {
-        return userId;
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public Person getPerson() {
         return person;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public Type getType() {
+        return type;
+    }
+
+    private enum Type {
+        PRIVATE, COMPANY
     }
 }

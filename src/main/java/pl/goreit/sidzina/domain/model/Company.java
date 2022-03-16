@@ -2,26 +2,19 @@ package pl.goreit.sidzina.domain.model;
 
 public class Company {
 
-    private String name;
     private String nip;
+    private String name;
 
-    private Address address;
-
-    public Company(String name, String nip) {
-        this.name = name;
+    public Company(String nip, String name) {
         this.nip = nip;
-        this.address = address;
-    }
-
-    public String getName() {
-        return name;
+        this.name = name;
     }
 
     public String getNip() {
         return nip;
     }
 
-    public Address getAddress() {
-        return address;
+    public String getName() {
+        return name;
     }
 }

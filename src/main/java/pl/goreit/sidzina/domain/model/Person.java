@@ -6,13 +6,10 @@ public class Person {
     private String lastName;
     private String pesel;
 
-    private Address address;
-
-    public Person(String firstName, String lastName, String pesel, Address address) {
+    public Person(String firstName, String lastName, String pesel) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;
-        this.address = address;
     }
 
     public String getFirstName() {
@@ -27,7 +24,4 @@ public class Person {
         return pesel;
     }
 
-    public Address getAddress() {
-        return address;
-    }
 }
