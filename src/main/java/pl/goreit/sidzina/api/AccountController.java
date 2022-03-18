@@ -22,4 +22,6 @@ public class AccountController {
     public Account addAccount(@RequestBody CreateCompanyAccountRequest request) {
         return accountService.add(request);
     }
+
+
 }

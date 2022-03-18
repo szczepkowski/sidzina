@@ -35,6 +35,6 @@ public class CreateAccountRequestToAccountConverter implements Converter<CreateC
         Address address = conversionService.convert(request.getAddress(), Address.class);
         Company company = conversionService.convert(request.getCompany(), Company.class);
 
-        return new Account(UUID.randomUUID().toString(), person, address, company);
+        return new Account(request.getLogin(), person, address, company);
     }
 }

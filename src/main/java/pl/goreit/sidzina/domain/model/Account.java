@@ -9,35 +9,38 @@ import java.time.LocalDateTime;
 public class Account {
 
     @Id
-    private String id;
+    private String login;
     private Company company;
     private Person person;
     private Address address;
 
     private Type type;
 
-    public Account(String id, Person person, Address address, Company company) {
-        this.id = id;
+    public Account(String login, Person person, Address address, Company company) {
+        this.login = login;
         this.person = person;
         this.address = address;
         this.company = company;
         this.type = Type.COMPANY;
     }
 
-    public Account(String id, Person person, Address address) {
-        this.id = id;
+    public Account(String login, Person person, Address address) {
+        this.login = login;
         this.person = person;
         this.address = address;
         this.type = Type.PRIVATE;
     }
 
+    public Company getCompany() {
+        return company;
+    }
 
     public Address getAddress() {
         return address;
     }
 
-    public String getId() {
-        return id;
+    public String getLogin() {
+        return login;
     }
 
     public Person getPerson() {

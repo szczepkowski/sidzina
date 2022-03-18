@@ -11,11 +11,13 @@ public class Offer {
     @Id
     private String id;
 
+    private String sellerId;
+
     private String title;
     private String description;
     private BigDecimal price;
 
-    public Offer(String id, String title, String description, BigDecimal price) {
+    public Offer(String id, String sellerId, String title, String description, BigDecimal price) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -52,5 +54,9 @@ public class Offer {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getSellerId() {
+        return sellerId;
     }
 }

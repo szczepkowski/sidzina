@@ -38,7 +38,7 @@ public class TestHelperController {
     public void addOffers(@RequestParam("amount") Integer amount) {
 
         for (int i = 0; i < amount; i++) {
-            Offer offer = new Offer(UUID.randomUUID().toString(), "testTitle" + i, "testDesc" + i, BigDecimal.valueOf(i));
+            Offer offer = new Offer(UUID.randomUUID().toString(), "admin" , "testTitle" + i, "testDesc" + i, BigDecimal.valueOf(i) );
             offerRepo.save(offer);
         }
     }
