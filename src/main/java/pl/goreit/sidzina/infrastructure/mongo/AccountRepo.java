@@ -6,5 +6,5 @@ import pl.goreit.sidzina.domain.model.Account;
 
 @Repository
 public interface AccountRepo extends MongoRepository<Account, String > {
-    Account findByUserId(String userId);
+
 }
