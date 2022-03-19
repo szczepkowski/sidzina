@@ -1,11 +1,36 @@
 package pl.goreit.sidzina.domain.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.ConversionService;
+import org.springframework.stereotype.Service;
 import pl.goreit.api.generated.message.MessageView;
+import pl.goreit.sidzina.domain.model.Message;
+import pl.goreit.sidzina.infrastructure.mongo.MessageRepo;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
-public interface MessageService {
-    List<MessageView> findByEmail(String email);
+@Service
+public class MessageService {
 
-    Boolean create(MessageView messageView);
+    @Autowired
+    private MessageRepo messageRepo;
+
+    @Autowired
+    private ConversionService sellConversionService;
+
+    public List<MessageView> findByEmail(String email) {
+        List<Message> messages = messageRepo.findByEmail(email);
+        return messages
+                .stream()
+                .map(message -> sellConversionService.convert(message, MessageView.class))
+                .collect(Collectors.toList());
+    }
+
+    public Boolean create(MessageView view) {
+        Message message = sellConversionService.convert(view, Message.class);
+        messageRepo.save(Objects.requireNonNull(message));
+        return true;
+    }
 }

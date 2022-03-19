@@ -1,9 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
-    "sellerId": {
-      "type": "string"
-    },
     "title": {
       "type": "string"
     },
@@ -11,15 +8,9 @@
       "type": "string"
     },
     "price": {
-      "type": "string"
+      "type": "number"
     },
-    "comments": {
-      "type": "array",
-      "items": {
-        "$ref": "./comment-view.json"
-      }
-    },
-    "status": {
+    "sellerId": {
       "type": "string"
     }
   }

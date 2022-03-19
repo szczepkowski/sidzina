@@ -7,7 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import pl.goreit.api.generated.account.CreateCompanyAccountRequest;
 import pl.goreit.sidzina.domain.model.Account;
-import pl.goreit.sidzina.domain.service.AccountService  ;
+import pl.goreit.sidzina.domain.service.AccountService;
 
 @RestController
 @RequestMapping("/accounts")

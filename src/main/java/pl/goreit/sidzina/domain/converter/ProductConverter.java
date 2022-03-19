@@ -4,14 +4,14 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-import pl.goreit.api.generated.CommentView;
-import pl.goreit.api.generated.ProductViewDetails;
-import pl.goreit.sidzina.domain.model.Product;
+import pl.goreit.api.generated.auction_api.AuctionView;
+import pl.goreit.api.generated.auction_api.CommentView;
+import pl.goreit.sidzina.domain.model.Auction;
 
 import java.util.stream.Collectors;
 
 @Component
-public class ProductConverter implements Converter<Product, ProductViewDetails> {
+public class ProductConverter implements Converter<Auction, AuctionView> {
 
     private final ConversionService conversionService;
 
@@ -20,16 +20,16 @@ public class ProductConverter implements Converter<Product, ProductViewDetails> 
         this.conversionService = conversionService;
     }
 
-
     @Override
-    public ProductViewDetails convert(Product product) {
-        return new ProductViewDetails(product.getWorkshopId(),
-                product.getTitle(),
-                product.getText(),
-                product.getPrice().toString(),
-                product.getComments().stream()
+    public AuctionView convert(Auction auction) {
+        return new AuctionView(
+                auction.getTitle(),
+                auction.getSellerId(),
+                auction.getDescription(),
+                auction.getPrice().toString(),
+                auction.getComments().stream()
                         .map(comment -> conversionService.convert(comment, CommentView.class))
                         .collect(Collectors.toList()),
-                product.getStatus().name());
+                auction.getStatus().name());
     }
 }

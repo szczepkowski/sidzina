@@ -2,7 +2,7 @@ package pl.goreit.sidzina.domain.converter;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-import pl.goreit.api.generated.CommentView;
+import pl.goreit.api.generated.auction_api.CommentView;
 import pl.goreit.sidzina.domain.model.Comment;
 
 @Component

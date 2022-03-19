@@ -2,7 +2,6 @@ package pl.goreit.sidzina.domain.model;
 
 import com.google.common.collect.Lists;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import pl.goreit.sidzina.domain.DomainException;
 import pl.goreit.sidzina.domain.ExceptionCode;
@@ -12,27 +11,28 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Document
-public class Product {
+public class Auction {
 
     @Id
     private String id;
-    private String workshopId;
+    private String sellerId;
 
-    @Indexed(unique=true)
     private String title;
-    private String text;
+    private String description;
     private BigDecimal price;
+
     private List<Comment> comments;
     private Status status;
 
     private LocalDateTime creationDate;
 
-    public Product(String id, String workshopId, String title, String text, BigDecimal price) {
+    public Auction(String id, String title, String description, BigDecimal price, String sellerId) {
         this.id = id;
-        this.workshopId = workshopId;
         this.title = title;
-        this.text = text;
+        this.description = description;
         this.price = price;
+        this.sellerId = sellerId;
+
         this.status = Status.ACTIVE;
         this.creationDate = LocalDateTime.now();
         this.comments = Lists.newArrayList();
@@ -40,7 +40,7 @@ public class Product {
 
     public boolean addComment(Comment comment) throws DomainException {
         if (Status.ACTIVE != getStatus()) {
-            throw new DomainException(ExceptionCode.NON_AVAILABLE_PRODUCT);
+            throw new DomainException(ExceptionCode.NON_AVAILABLE_AUCION);
         }
         return comments.add(comment);
     }
@@ -49,8 +49,8 @@ public class Product {
         return id;
     }
 
-    public String getWorkshopId() {
-        return workshopId;
+    public String getSellerId() {
+        return sellerId;
     }
 
     public BigDecimal getPrice() {
@@ -61,8 +61,8 @@ public class Product {
         return title;
     }
 
-    public String getText() {
-        return text;
+    public String getDescription() {
+        return description;
     }
 
     public Status getStatus() {

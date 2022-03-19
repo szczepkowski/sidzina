@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Document
 public class Offer {
@@ -11,17 +12,20 @@ public class Offer {
     @Id
     private String id;
 
-    private String sellerId;
-
     private String title;
     private String description;
     private BigDecimal price;
 
-    public Offer(String id, String sellerId, String title, String description, BigDecimal price) {
+    private State state;
+    private LocalDateTime creationDate;
+
+    public Offer(String id, String title, String description, BigDecimal price) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
+        this.state = State.ACTIVE;
+        this.creationDate = LocalDateTime.now();
     }
 
     public String getId() {
@@ -56,7 +60,15 @@ public class Offer {
         this.price = price;
     }
 
-    public String getSellerId() {
-        return sellerId;
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public enum State {
+        ACTIVE, IN_ACTIVE
     }
 }

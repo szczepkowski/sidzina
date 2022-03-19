@@ -5,18 +5,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
-import pl.goreit.sidzina.domain.model.Product;
+import pl.goreit.sidzina.domain.model.Auction;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ProductRepo extends MongoRepository<Product, String> {
+public interface AuctionRepo extends MongoRepository<Auction, String> {
 
-    Optional<Product> findByTitle(String title);
+    Optional<Auction> findByTitle(String title);
 
     @Query("{'title':{'$regex':'?0','$options':'i'}}")
-    Page<Product> findByTitle(String title, Pageable page);
+    Page<Auction> findByTitle(String title, Pageable page);
 
-    List<Product> findByTitleIn(List<String> strings);
+    List<Auction> findByTitleIn(List<String> strings);
 }
