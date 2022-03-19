@@ -4,10 +4,14 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
+import pl.goreit.api.generated.auction_api.CreateAuctionRequest;
+import pl.goreit.api.generated.offers.OfferView;
 import pl.goreit.sidzina.domain.model.Offer;
-import pl.goreit.sidzina.domain.model.Product;
+import pl.goreit.sidzina.domain.model.Auction;
+import pl.goreit.sidzina.domain.service.AuctionService;
+import pl.goreit.sidzina.domain.service.OfferService;
 import pl.goreit.sidzina.infrastructure.mongo.OfferRepo;
-import pl.goreit.sidzina.infrastructure.mongo.ProductRepo;
+import pl.goreit.sidzina.infrastructure.mongo.AuctionRepo;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -18,18 +22,18 @@ import java.util.UUID;
 public class TestHelperController {
 
     @Autowired
-    private ProductRepo productRepo;
+    private AuctionService auctionService;
 
     @Autowired
-    private OfferRepo offerRepo;
+    private OfferService offerService;
 
-    @GetMapping("/addProduct/")
+    @GetMapping("/addAcutions/")
     @ApiOperation(value = "add 100 products")
-    public void addProducts(@RequestParam("amount") Integer amount) {
+    public void addAuctions(@RequestParam("amount") Integer amount) {
 
         for (int count = 0; count < amount; count++) {
-            Product product = new Product(UUID.randomUUID().toString(), "GoreWorkshop", "korepetycje", "Pomoc w programowaniu", BigDecimal.valueOf(150));
-            productRepo.save(product);
+            CreateAuctionRequest createAuctionRequest = new CreateAuctionRequest("Macbook PRO 13' 8GB ", "Nowa Macbook PRO", BigDecimal.valueOf(4799), "admin");
+            auctionService.add(createAuctionRequest);
         }
     }
 
@@ -38,8 +42,8 @@ public class TestHelperController {
     public void addOffers(@RequestParam("amount") Integer amount) {
 
         for (int i = 0; i < amount; i++) {
-            Offer offer = new Offer(UUID.randomUUID().toString(), "testTitle" + i, "testDesc" + i, BigDecimal.valueOf(i));
-            offerRepo.save(offer);
+            OfferView offerView = new OfferView("testTitle" + i, "testDesc" + i, BigDecimal.valueOf(i));
+            offerService.add(offerView);
         }
     }
 
