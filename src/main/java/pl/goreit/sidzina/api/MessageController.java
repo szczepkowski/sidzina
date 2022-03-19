@@ -18,13 +18,13 @@ public class MessageController {
 
     @GetMapping
     @ApiOperation(value = "pobiera wiadomisci uzytkownika ")
-    public List<MessageView> getMessagesByEmail(@RequestParam String email) throws DomainException {
+    public List<MessageView> getMessagesByEmail(@RequestParam String email) {
         return messageService.findByEmail(email);
     }
 
     @PostMapping
     @ApiOperation(value = "dodaje wiadomosc ")
-    public Boolean createMessage(@RequestBody MessageView view) throws DomainException {
+    public Boolean createMessage(@RequestBody MessageView view) {
         return messageService.create(view);
     }
 }

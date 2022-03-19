@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
-    "id": {
+    "login": {
       "type": "string"
     },
     "person": {
@@ -12,9 +12,6 @@
     },
     "address": {
       "$ref": "address-view.json"
-    },
-    "type": {
-      "type": "string"
     }
   }
 }
