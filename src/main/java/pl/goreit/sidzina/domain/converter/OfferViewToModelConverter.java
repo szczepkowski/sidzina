@@ -12,6 +12,6 @@ public class OfferViewToModelConverter implements Converter<OfferView, Offer> {
 
     @Override
     public Offer convert(OfferView offerView) {
-        return new Offer(UUID.randomUUID().toString(), offerView.getSellerId(), offerView.getTitle(), offerView.getDescription(), offerView.getPrice());
+        return new Offer(UUID.randomUUID().toString(), offerView.getTitle(), offerView.getDescription(), offerView.getPrice(), offerView.getSellerId());
     }
 }

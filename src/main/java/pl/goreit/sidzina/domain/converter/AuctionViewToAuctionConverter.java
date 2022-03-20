@@ -11,12 +11,12 @@ import pl.goreit.sidzina.domain.model.Auction;
 import java.util.stream.Collectors;
 
 @Component
-public class ProductConverter implements Converter<Auction, AuctionView> {
+public class AuctionViewToAuctionConverter implements Converter<Auction, AuctionView> {
 
     private final ConversionService conversionService;
 
     @Lazy
-    public ProductConverter(ConversionService conversionService) {
+    public AuctionViewToAuctionConverter(ConversionService conversionService) {
         this.conversionService = conversionService;
     }
 
@@ -24,8 +24,8 @@ public class ProductConverter implements Converter<Auction, AuctionView> {
     public AuctionView convert(Auction auction) {
         return new AuctionView(
                 auction.getTitle(),
-                auction.getSellerId(),
                 auction.getDescription(),
+                auction.getSellerId(),
                 auction.getPrice().toString(),
                 auction.getComments().stream()
                         .map(comment -> conversionService.convert(comment, CommentView.class))

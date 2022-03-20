@@ -20,7 +20,7 @@ public class AccountController {
     @PostMapping
     @ApiOperation(value = "dodaje 1 konto", notes = "dodaje konto")
     public Account addAccount(@RequestBody CreateCompanyAccountRequest request) {
-        return accountService.add(request);
+        return null;
     }
 
 

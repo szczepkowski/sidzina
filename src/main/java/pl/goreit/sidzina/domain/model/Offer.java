@@ -11,6 +11,7 @@ public class Offer {
 
     @Id
     private String id;
+    private String sellerId;
 
     private String title;
     private String description;
@@ -19,11 +20,12 @@ public class Offer {
     private State state;
     private LocalDateTime creationDate;
 
-    public Offer(String id, String title, String description, BigDecimal price) {
+    public Offer(String id, String title, String description, BigDecimal price, String sellerId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
+        this.sellerId = sellerId;
         this.state = State.ACTIVE;
         this.creationDate = LocalDateTime.now();
     }
@@ -62,6 +64,10 @@ public class Offer {
 
     public LocalDateTime getCreationDate() {
         return creationDate;
+    }
+
+    public String getSellerId() {
+        return sellerId;
     }
 
     public State getState() {

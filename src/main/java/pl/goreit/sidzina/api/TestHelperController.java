@@ -42,7 +42,7 @@ public class TestHelperController {
     public void addOffers(@RequestParam("amount") Integer amount) {
 
         for (int i = 0; i < amount; i++) {
-            OfferView offerView = new OfferView("testTitle" + i, "testDesc" + i, BigDecimal.valueOf(i));
+            OfferView offerView = new OfferView("testTitle" + i, "testDesc" + i, BigDecimal.valueOf(i), "admin");
             offerService.add(offerView);
         }
     }

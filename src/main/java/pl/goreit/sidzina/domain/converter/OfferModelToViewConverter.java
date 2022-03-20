@@ -10,6 +10,6 @@ public class OfferModelToViewConverter implements Converter<Offer, OfferView> {
 
     @Override
     public OfferView convert(Offer offer) {
-        return new OfferView(offer.getTitle(), offer.getSellerId(), offer.getDescription(), offer.getPrice());
+        return new OfferView(offer.getTitle(), offer.getDescription(), offer.getPrice(), offer.getSellerId());
     }
 }
