@@ -53,6 +53,8 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.logout().invalidateHttpSession(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").addLogoutHandler(keycloakLogoutHandler())
                 .and().authorizeRequests()
+                .antMatchers("/swagger-resources/**").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
 //                .mvcMatchers("/orders", "/orders/**", "/orders/receive", "/orders/receive/**", "/orders/schedule", "/orders/schedule/**",
 //                        "/accounts", "/accounts/**, /products/add,/products/add/**").hasRole("user")
                 .anyRequest()

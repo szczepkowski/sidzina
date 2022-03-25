@@ -22,7 +22,8 @@ public class Message {
     @JsonSerialize(using = ToStringSerializer.class)
     private LocalDateTime creationTime;
 
-    public Message(String email, String title, String body) {
+    public Message(String id, String email, String title, String body) {
+        this.id = id;
         this.email = email;
         this.title = title;
         this.body = body;
