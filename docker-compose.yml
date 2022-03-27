@@ -7,24 +7,24 @@ services:
       - sidzina-api-data:/root
     ports:
       - 8080:8080
-    depends_on:
-      - 'mongodb'
+#    depends_on:
+#      - 'mongodb'
     networks:
       - goreit
 
-  mongodb:
-    image: mongo:4.0.0
-    volumes:
-      - mongodb-data:/data/db
-    ports:
-      - 27017:27017
-    command: mongod mongod --logpath /var/logs
-
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
-    networks:
-      - goreit
+#  mongodb:
+#    image: mongo:4.0.0
+#    volumes:
+#      - mongodb-data:/data/db
+#    ports:
+#      - 27017:27017
+#    command: mongod mongod --logpath /var/logs
+#
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: root
+#    networks:
+#      - goreit
 
 #  keycloak:
 #    image: jboss/keycloak
