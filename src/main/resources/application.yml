@@ -6,13 +6,12 @@ mongodb:
 spring:
   data:
     mongodb:
-      uri: mongodb://azure-cosmodb-for-mongo:SCFonQMOiTYVL4sA4rEv16vMiqj738VTHaVsTHtSmy0tK3X8PCM6GdqQjMI1xsZoyBGass2CZ5OxmsHouCaKZQ==@azure-cosmodb-for-mongo.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@azure-cosmodb-for-mongo@
       database: goreit
-  #      authentication-database: admin
-  #      host: 192.168.0.187
-  #      port: 27017
-  #      password: root
-  #      username: root
+      authentication-database: admin
+      host: mongodb
+      port: 27017
+      password: root
+      username: root
   servlet:
     multipart:
       enabled: true
@@ -49,7 +48,7 @@ logging:
 
 
 server:
-  port: 80
+  port: 8080
 
 #ribbon:
 #  http:

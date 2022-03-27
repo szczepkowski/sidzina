@@ -23,12 +23,13 @@ plugins {
     id "com.microsoft.azure.azurewebapp" version "1.3.0"
     id "war"
 }
+
 apply plugin: 'jsonschema2pojo'
 apply plugin: 'org.springframework.boot'
-
+apply plugin: 'war'
 
 group = 'pl.goreit'
-version = '0.1.0'
+version = '0.0.1'
 sourceCompatibility = '1.8'
 
 repositories {
@@ -40,6 +41,9 @@ ext {
 }
 
 dependencies {
+
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
     implementation(
 //            'org.springframework.cloud:spring-cloud-starter-kubernetes-all:1.1.2.RELEASE',
             'org.springframework.boot:spring-boot-starter-data-mongodb',
@@ -69,9 +73,6 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-
-    compileOnly ('org.springframework.boot:spring-boot-starter-tomcat')
-
 
     testImplementation group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.mongo', version: '2.2.0'
 
@@ -109,14 +110,14 @@ jsonSchema2Pojo {
 
 azurewebapp {
     subscription = '413a02d5-6055-4517-a875-c2519a64745b'
-    resourceGroup = 'sidzina-group'
-    appName = 'sidzina'
-    pricingTier = 'B1'
+    resourceGroup = 'sidzina-group1'
+    appName = 'sidzina3'
+    pricingTier = 'P1V2'
     region = 'westeurope'
     runtime {
         os = 'Linux'
-        webContainer = 'Tomcat 10.0'
-        javaVersion = 'Java 11'
+        webContainer = 'Tomcat 9.0'
+        javaVersion = 'Java 8'
     }
 
 

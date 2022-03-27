@@ -1,6 +1,0 @@
-
-spring:
-  data:
-    mongodb:
-      database:  goreit
-      uri: mongodb://azure-cosmodb-for-mongo:SCFonQMOiTYVL4sA4rEv16vMiqj738VTHaVsTHtSmy0tK3X8PCM6GdqQjMI1xsZoyBGass2CZ5OxmsHouCaKZQ==@azure-cosmodb-for-mongo.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@azure-cosmodb-for-mongo@
