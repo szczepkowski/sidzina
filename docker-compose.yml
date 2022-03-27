@@ -2,7 +2,7 @@ version: '3.7'
 services:
 
   sidzina-api:
-    image: goreit/sidzina:4
+    image: goreit/sidzina:latest
     volumes:
       - sidzina-api-data:/root
     ports:
