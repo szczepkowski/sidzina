@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+
+  sidzina-api:
+    image: goreit/sidzina:latest
+    volumes:
+      - sidzina-api-data:/root
+    environment:
+      - "SPRING_PROFILES_ACTIVE=test"
+    ports:
+      - 8080:8080
+    networks:
+      - goreit
+
+networks:
+  goreit:
+
+volumes:
+  sidzina-api-data:
+
