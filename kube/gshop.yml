@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gshop-dep
+  name: sidzina-dep
   labels:
-    app: gshop-service
+    app: sidzina-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gshop
+      app: sidzina
   template:
     metadata:
       labels:
-        app: gshop
+        app: sidzina
     spec:
       containers:
-        - name: gshop
-          image: goreit/gshop:latest
+        - name: sidzina
+          image: goreit/sidzina:latest
           ports:
             - containerPort: 8080
 ---

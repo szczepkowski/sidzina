@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://AdminSammy:AdminSammy'sSecurePassword@goreit.pl:27017/?authSource=admin&gssapiServiceName=mongodb
+      database: sidzina
+
+
+
+
+

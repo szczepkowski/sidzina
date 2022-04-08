@@ -1,16 +1,16 @@
 version: '3.7'
 services:
 
-  sidzina-api:
-    image: goreit/sidzina:latest
-    volumes:
-      - sidzina-api-data:/root
-    ports:
-      - 8080:8080
-#    depends_on:
-#      - 'mongodb'
-    networks:
-      - goreit
+#  sidzina-api:
+#    image: goreit/sidzina:latest
+#    volumes:
+#      - sidzina-api-data:/root
+#    ports:
+#      - 8080:8080
+##    depends_on:
+##      - 'mongodb'
+#    networks:
+#      - goreit
 
 #  mongodb:
 #    image: mongo:4.0.0
@@ -26,40 +26,37 @@ services:
 #    networks:
 #      - goreit
 
-#  keycloak:
-#    image: jboss/keycloak
-#    ports:
-#      - 8080:8080
-#    environment:
-#      DB_VENDOR: POSTGRES
-#      DB_ADDR: postgres
-#      DB_DATABASE: keycloak
-#      DB_USER: postgres
-#      DB_PASSWORD: postgres
-#      KEYCLOAK_USER: admin
-#      KEYCLOAK_PASSWORD: admin
-#    volumes:
-#      - keycloak-data:/var/lib/keycloak/data
-#    networks:
-#      - goreit
-#    depends_on:
-#      - postgres
-#
+  keycloak:
+    image: jboss/keycloak
+    ports:
+      - 8080:8080
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    volumes:
+      - keycloak-data:/var/lib/keycloak/data
+    networks:
+      - goreit
+    depends_on:
+      - postgres
 
-#
-#
-#  postgres:
-#    image: postgres
-#    ports:
-#      - 5432:5432
-#    environment:
-#      POSTGRES_PASSWORD: postgres
-#      POSTGRES_DB: keycloak
-#      PGDATA: var/lib/postgresql/data/pgdata
-#    volumes:
-#      - postgres-data:/var/lib/postgresql/data
-#    networks:
-#      - goreit
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: keycloak
+      PGDATA: var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - goreit
 
 
 #  rabbitmq:
@@ -87,8 +84,8 @@ volumes:
   sidzina-api-data:
   mongodb-data:
   rabbitmq-data:
-#  solr-data:
-#  postgres-data:
-#  keycloak-data:
+  postgres-data:
+  keycloak-data:
+  #  solr-data:
 
 

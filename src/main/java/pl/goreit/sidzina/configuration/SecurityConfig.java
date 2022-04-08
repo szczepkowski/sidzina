@@ -55,8 +55,11 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
                 .and().authorizeRequests()
                 .antMatchers("/swagger-resources/**").permitAll()
                 .antMatchers("/swagger-ui.html").permitAll()
-//                .mvcMatchers("/orders", "/orders/**", "/orders/receive", "/orders/receive/**", "/orders/schedule", "/orders/schedule/**",
-//                        "/accounts", "/accounts/**, /products/add,/products/add/**").hasRole("user")
+                .mvcMatchers(
+                        "/accounts", "/accounts/**, " +
+                                "/auctions/add,/auctions/add/**" +
+                                "/offers/add", "/offers/add/**")
+                .hasRole("user")
                 .anyRequest()
                 .permitAll();
     }
